@@ -1,0 +1,1 @@
+export ENVIRONMENT=$(awk '{split($0,a,"."); print tolower(a[1])}' <<< "$HOSTNAME")
