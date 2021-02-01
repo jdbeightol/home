@@ -1,1 +1,0 @@
-/Users/mikatu/.fzf.bash
