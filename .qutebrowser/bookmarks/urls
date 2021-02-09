@@ -15,3 +15,4 @@ https://concourse.internal.digitalocean.com/teams/orca/pipelines/orca?group=all 
 https://github.internal.digitalocean.com/digitalocean/chef digitalocean/chef
 https://github.internal.digitalocean.com/digitalocean/service-catalog digitalocean/service-catalog: A centralized repository for maintaining the catalog of services
 https://vault-ui.internal.digitalocean.com/ui/vault/secrets Vault
+https://github.internal.digitalocean.com/digitalocean/secrets digitalocean/secrets: Tools for interfacing with the DigitalOcean global secret services
