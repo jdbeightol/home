@@ -1,4 +1,4 @@
-c.bindings.commands = {"command": {}, "insert": {"<Escape>": "mode-leave ;; jseval -q document.activeElement.blur()"}, "normal": {"J": "tab-prev", "K": "tab-next", "j": "scroll-px 0 200", "k": "scroll-px 0 -200"}}
+c.bindings.commands = {"command": {}, "insert": {"<Escape>": "leave-mode ;; jseval -q document.activeElement.blur()"}, "normal": {"J": "tab-prev", "K": "tab-next", "j": "scroll-px 0 200", "k": "scroll-px 0 -200"}}
 c.editor.command = ["/usr/local/bin/kitty", "vim", "-f", "{file}", "-c", "normal {line}G{column0}l"]
 
 # TODO: Experimenting with these to see if insert behavior becomes more predictable.

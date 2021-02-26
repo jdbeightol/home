@@ -1,5 +1,0 @@
-Orca PR's https://github.internal.digitalocean.com/digitalocean/cthulhu/pulls?utf8=%E2%9C%93&q=is%3Apr+is%3Aopen+orca
-Production Kibana https://logs.internal.digitalocean.com/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-15m,to:now))&_a=(columns:!(_source),filters:!(),index:default,interval:auto,query:(language:kuery,query:''),sort:!())
-Stage2 Kibana https://logs.s2r1.internal.digitalocean.com/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-15m,to:now))&_a=(columns:!(_source),filters:!(),index:default,interval:auto,query:(language:kuery,query:''),sort:!())
-Production Grafana https://grafana.internal.digitalocean.com/d/K_2ZZ4dZz/do-home?orgId=1
-Stage2 Grafana https://grafana.s2r1.internal.digitalocean.com/?orgId=1
