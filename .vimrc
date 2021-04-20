@@ -84,4 +84,4 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
 set rtp+=/usr/local/opt/fz
-f
+
