@@ -11,6 +11,12 @@ module.exports = {
         "do.co/bbzd"
       ],
       browser: "Google Chrome"
+    },
+    {
+      match: [
+        "youtube.com*"
+      ],
+      browser: "Safari"
     }
   ]
 }
