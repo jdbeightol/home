@@ -17,6 +17,9 @@ which vim &>/dev/null && alias vi='vim'
 
 alias line='printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr " " -'
 
+# Alias dotfile config management
+alias .f='git --git-dir $HOME/.cfg/ --work-tree $HOME'
+
 # Source the git prompt function and add it into the PS1 if it exists.
 if [ -f "/etc/bash_completion.d/git" ]; then
     source /etc/bash_completion.d/git

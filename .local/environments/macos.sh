@@ -14,9 +14,6 @@ alias find='find .'
 # Aliases of linux equivalent commands.
 alias lsblk='diskutil list'
 
-# Alias dotfile config management
-alias .f='git --git-dir $HOME/.cfg/ --work-tree $HOME'
-
 # Source the git prompt function and add it into the PS1 if it exists.
 if [ -f "/Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh" ]; then
     source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
