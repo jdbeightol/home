@@ -51,7 +51,14 @@ function env::load() {
     env::init
     env::echo -ne "${ENV_STYLE}Configuration hierarchy: ${ENV_COLOR_PRIMARY}profile"
 
-    [ -e "${HOME}/.environment" ] && source "${HOME}/.environment" || export ENVIRONMENT=base
+    export ENVIRONMENT=`awk '{split($0,a,"."); print tolower(a[1])}' <<< "$HOSTNAME"`
+    if [ -e "${HOME}/.environment" ]; then
+        source "${HOME}/.environment"
+    fi
+    
+    if [ ! -e "${HOME}/.local/environments/${ENVIRONMENT}.sh" ]; then
+        export ENVIRONMENT="base"
+    fi
 
     env::extends "${ENVIRONMENT}"
     env::echo -e "${ENV_RESET}"
