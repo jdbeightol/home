@@ -14,7 +14,13 @@ alias orca2-metal='orca2 --servername placement-services.internal.digitalocean.c
 alias orca2-stage='orca2 --servername orca2-stage2.internal.digitalocean.com'
 alias explain='go run "$HOME/Workspace/cthulhu/docode/src/do/teams/compute/orca2/cmd/explainer/"'
 alias mine='jira list -n mine'
-alias todo='jira list -l 10 -n todo -p Orca'
+alias todo='
+echo backlog; line
+jira list -l 10 -n todo -p Orca
+echo; echo epics; line;
+jira list -l 10 -n epics -p Orca
+echo; echo in-progress epic stories; line;
+jira list -n epics-inprogress -p Orca -t listissueonly | xargs -I{} jira epic ls {} -t list'
 alias j='jira'
 alias flipperctl='docker run --rm docker.internal.digitalocean.com/compute/flipperctl'
 
