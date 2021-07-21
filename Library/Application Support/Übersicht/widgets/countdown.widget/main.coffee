@@ -13,7 +13,8 @@ command: ""
 refreshFrequency: 30 * 1000
 
 style: """
-	right 0px
+	top 80px
+	left 0px
 
 	*
 		margin 10px
