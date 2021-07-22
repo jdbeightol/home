@@ -30,5 +30,5 @@ fi
 # Source fzf config if it exists
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-[ -f ~/.local/scripts/goto ] && source ~/.local/scripts/goto
+[ -f ~/.local/scripts/goto.sh ] && source ~/.local/scripts/goto.sh
 

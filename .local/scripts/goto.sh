@@ -3,7 +3,7 @@
 # goto depends on fzf, so don't load if it's not present
 which fzf 2>&1 1>/dev/null || ( echo 'the goto alias requires fzf to run'; return 1 )
 
-GOTO_CACHE_FILE="${HOME}/.local/goto/cache"
+GOTO_CACHE_FILE="${HOME}/.goto"
 
 function goto::find() {
     (
@@ -12,7 +12,7 @@ function goto::find() {
     ) ||
         (
             1>&2 echo -n 'searching... ' 
-            \find "${CTHULHU_DIR}" -type d -name "$@" -not -path '*/.git/*' 
+            \find "${WORKSPACE_DIR}" -type d -name "$@" -not -path '*/.git/*' 
         )
 }
 

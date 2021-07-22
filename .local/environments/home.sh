@@ -12,3 +12,5 @@ else
 fi
 
 export GOPATH="$HOME/.local/go"
+export WORKSPACE_DIR="${HOME}/Workspace"
+
