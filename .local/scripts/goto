@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# goto depends on fzf, so don't load if it's not present
+which fzf 2>&1 1>/dev/null || ( echo 'the goto alias requires fzf to run'; return 1 )
+
 GOTO_CACHE_FILE="${HOME}/.local/goto/cache"
 
 function goto::find() {
@@ -39,7 +42,29 @@ function goto::dump() {
     rm -v "r${GOTO_CACHE_FILE}"
 }
 
+function goto::command::gc() {
+    \cat "${GOTO_CACHE_FILE}" | 
+        while read line; do
+            [[ -d "$line" ]] || (
+                1>&2 echo "pruning ${line}"
+                \sed -i '' -e "\|${line}/|d" "${GOTO_CACHE_FILE}" || echo 'oops' 
+            )
+        done
+}
+
+function goto::command::purge() {
+    \rm "${GOTO_CACHE_FILE}"
+}
+
 function goto {
+    declare -F "goto::command::$1" >/dev/null && (
+        CMD="$1"
+        shift 1
+        echo "executing ${CMD}..."
+        "goto::command::${CMD}" "$@"
+        return 0
+    ) && return
+
     DIRS=($(goto::find "$@"))
 
     if [[ "${#DIRS[@]}" -eq 0 ]]; then
