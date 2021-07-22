@@ -23,4 +23,4 @@ case "$-" in
         fi
     ;;
 esac
-if [ -e /Users/jbeightol/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/jbeightol/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
