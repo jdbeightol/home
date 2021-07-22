@@ -32,10 +32,11 @@ function vault::auth() {
 }
 
 function vault::cache() {
-cat > "${VAULT_CACHE_FILE}" << EOF
+    cat > "${VAULT_CACHE_FILE}" << EOF
 export VAULT_TOKEN=${VAULT_TOKEN}
 export VAULT_EXPIRE=${VAULT_EXPIRE}
 EOF
+    chmod 600 "${VAULT_CACHE_FILE}"
 }
 
 alias vault-auth="vault::auth"
