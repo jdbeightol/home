@@ -5,6 +5,24 @@ which fzf 2>&1 1>/dev/null || ( echo 'the goto alias requires fzf to run'; retur
 
 GOTO_CACHE_FILE="${HOME}/.goto"
 
+function goto::cache() {
+    \grep "${@}$" "${GOTO_CACHE_FILE}" 1>/dev/null 2>&1 ||
+        (
+            1>&2 echo -n 'discovered' &&
+            echo "${@}" >> "${GOTO_CACHE_FILE}"
+        )
+}
+
+function goto::cd() {
+    goto::cache "${@}"
+    1>&2 echo " -> ${@}"
+    cd "${@}"
+}
+
+function goto::dump() {
+    rm -v "r${GOTO_CACHE_FILE}"
+}
+
 function goto::find() {
     (
         \grep "${@}\$" "${GOTO_CACHE_FILE}" 2>/dev/null &&
@@ -16,30 +34,12 @@ function goto::find() {
         )
 }
 
-function goto::cache() {
-    \grep "${@}$" "${GOTO_CACHE_FILE}" 1>/dev/null 2>&1 ||
-        (
-            1>&2 echo -n 'discovered' &&
-            echo "${@}" >> "${GOTO_CACHE_FILE}"
-        )
-}
-
 function goto::which() {
     DIRS=("${@}")
     1>&2 echo -n "which? "
     for d in "${DIRS[@]}"; do
         echo "$d"
     done | fzf
-}
-
-function goto::cd() {
-    goto::cache "${@}"
-    1>&2 echo " -> ${@}"
-    cd "${@}"
-}
-
-function goto::dump() {
-    rm -v "r${GOTO_CACHE_FILE}"
 }
 
 function goto::command::gc() {

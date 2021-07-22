@@ -5,13 +5,6 @@ VAULT_CACHE_FILE="${HOME}/.vault-auth"
 
 [[ -f "${VAULT_CACHE_FILE}" ]] && source "${VAULT_CACHE_FILE}"
 
-function vault::cache() {
-cat > "${VAULT_CACHE_FILE}" << EOF
-export VAULT_TOKEN=${VAULT_TOKEN}
-export VAULT_EXPIRE=${VAULT_EXPIRE}
-EOF
-}
-
 function vault::auth() {
     local date=$(date +%s)
     local expire=72000
@@ -36,6 +29,13 @@ function vault::auth() {
     else
         1>&2 echo "using cached credentials..."
     fi
+}
+
+function vault::cache() {
+cat > "${VAULT_CACHE_FILE}" << EOF
+export VAULT_TOKEN=${VAULT_TOKEN}
+export VAULT_EXPIRE=${VAULT_EXPIRE}
+EOF
 }
 
 alias vault-auth="vault::auth"
