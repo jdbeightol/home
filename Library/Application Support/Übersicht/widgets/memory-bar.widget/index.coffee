@@ -1,6 +1,6 @@
 command: "memory_pressure && sysctl -n hw.memsize"
 
-refreshFrequency: 2000
+refreshFrequency: 30 * 1000
 
 style: """
   // Change bar height
