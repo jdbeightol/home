@@ -22,7 +22,7 @@ style: """
 
   // Position this where you want
   bottom 10px
-  left 340px
+  left 640px
 
   color #fff
   font-family Helvetica Neue
