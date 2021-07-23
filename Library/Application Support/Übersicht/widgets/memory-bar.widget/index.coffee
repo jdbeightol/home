@@ -4,7 +4,7 @@ refreshFrequency: 5 * 1000
 
 style: """
   // Change bar height
-  bar-height = 8px
+  bar-height = 6px
 
   // Align contents left or right
   widget-align = left
