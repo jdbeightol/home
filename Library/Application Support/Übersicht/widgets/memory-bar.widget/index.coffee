@@ -1,6 +1,6 @@
 command: "sysctl -n hw.memsize && vm_stat"
 
-refreshFrequency: 30 * 1000
+refreshFrequency: 5 * 1000
 
 style: """
   // Change bar height
@@ -21,7 +21,7 @@ style: """
   border-radius 5px
 
   .container
-    width: 500px
+    width: 600px
     text-align: widget-align
     position: relative
     clear: both
@@ -95,16 +95,22 @@ style: """
     color: rgba(#fc0, .7)
 
   .bar-compressed
-    background: rgba(#f0c, .5)
+    background: rgba(#30f, .5)
 
   .label-compressed
-    color: rgba(#f0c, .7)
+    color: rgba(#a7f, .7)
 
   .bar-wired
     background: rgba(#c00, .5)
 
   .label-wired
     color: rgba(#c00, .7)
+
+  .bar-cached
+    background: rgba(#333, .5)
+
+  .label-cached
+    color: rgba(#888, .7)
 
   .label-free
     color: rgba(#fff, .5)
@@ -121,6 +127,7 @@ render: -> """
         <td class="stat"><span class="inactive"></span></td>
         <td class="stat"><span class="app"></span></td>
         <td class="stat"><span class="compressed"></span></td>
+        <td class="stat"><span class="cached"></span></td>
         <td class="stat"><span class="free"></span></td>
         <td class="stat"><span class="total"></span></td>
       </tr>
@@ -130,6 +137,7 @@ render: -> """
         <td class="label label-inactive">inactive</td>
         <td class="label label-app">app</td>
         <td class="label label-compressed">compressed</td>
+        <td class="label label-cached">cached</td>
         <td class="label label-free">free</td>
         <td class="label">total</td>
       </tr>
@@ -143,6 +151,7 @@ render: -> """
       <div class="bar bar-wired"></div>
       <div class="bar bar-app"></div>
       <div class="bar bar-compressed"></div>
+      <div class="bar bar-cached"></div>
     </div>
   </div>
 """
@@ -175,17 +184,20 @@ update: (output, domEl) ->
   speculativePages = lines[5].split(": ")[1]
   wiredPages = lines[7].split(": ")[1]
   purgeablePages = lines[8].split(": ")[1]
+  fileBackedPages = lines[14].split(": ")[1]
   anonymousPages = lines[15].split(": ")[1]
   compressedPages = lines[17].split(": ")[1]
   appPages = anonymousPages - purgeablePages
+  # cachedPages = fileBackedPages
+  cachedPages = fileBackedPages + speculativePages
 
   totalBytes = lines[0]
   $(domEl).find(".total").text usageFormat(totalBytes / 1024 / 1024)
-  # $(domEl).find(".total").text lines[0]
 
   updateStat 'wired', wiredPages, ps, totalBytes
   updateStat 'free', freePages, ps, totalBytes
   updateStat 'active', activePages, ps, totalBytes
   updateStat 'inactive', inactivePages, ps, totalBytes
   updateStat 'compressed', compressedPages, ps, totalBytes
+  updateStat 'cached', fileBackedPages, ps, totalBytes
   updateStat 'app', appPages, ps, totalBytes
