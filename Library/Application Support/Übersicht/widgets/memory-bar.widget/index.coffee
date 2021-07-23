@@ -1,10 +1,10 @@
-command: "memory_pressure && sysctl -n hw.memsize"
+command: "sysctl -n hw.memsize && vm_stat"
 
 refreshFrequency: 30 * 1000
 
 style: """
   // Change bar height
-  bar-height = 6px
+  bar-height = 8px
 
   // Align contents left or right
   widget-align = left
@@ -21,7 +21,7 @@ style: """
   border-radius 5px
 
   .container
-    width: 300px
+    width: 500px
     text-align: widget-align
     position: relative
     clear: both
@@ -57,8 +57,7 @@ style: """
     float: widget-align
     clear: both
     background: rgba(#fff, .5)
-    position: absolute
-    margin-bottom: 5px
+    margin-top: 5px
 
   .bar
     height: bar-height
@@ -80,11 +79,35 @@ style: """
   .bar-inactive
     background: rgba(#0bf, .5)
 
+  .label-inactive
+    color: rgba(#0bf, .7)
+
+  .bar-app
+    background: rgba(#0fb, .5)
+
+  .label-app
+    color: rgba(#0fb, .7)
+
   .bar-active
     background: rgba(#fc0, .5)
 
+  .label-active
+    color: rgba(#fc0, .7)
+
+  .bar-compressed
+    background: rgba(#f0c, .5)
+
+  .label-compressed
+    color: rgba(#f0c, .7)
+
   .bar-wired
     background: rgba(#c00, .5)
+
+  .label-wired
+    color: rgba(#c00, .7)
+
+  .label-free
+    color: rgba(#fff, .5)
 """
 
 
@@ -96,14 +119,18 @@ render: -> """
         <td class="stat"><span class="wired"></span></td>
         <td class="stat"><span class="active"></span></td>
         <td class="stat"><span class="inactive"></span></td>
+        <td class="stat"><span class="app"></span></td>
+        <td class="stat"><span class="compressed"></span></td>
         <td class="stat"><span class="free"></span></td>
         <td class="stat"><span class="total"></span></td>
       </tr>
       <tr>
-        <td class="label">wired</td>
-        <td class="label">active</td>
-        <td class="label">inactive</td>
-        <td class="label">free</td>
+        <td class="label label-wired">wired</td>
+        <td class="label label-active">active</td>
+        <td class="label label-inactive">inactive</td>
+        <td class="label label-app">app</td>
+        <td class="label label-compressed">compressed</td>
+        <td class="label label-free">free</td>
         <td class="label">total</td>
       </tr>
     </table>
@@ -112,13 +139,17 @@ render: -> """
       <div class="bar bar-active"></div>
       <div class="bar bar-inactive"></div>
     </div>
+    <div class="bar-container">
+      <div class="bar bar-wired"></div>
+      <div class="bar bar-app"></div>
+      <div class="bar bar-compressed"></div>
+    </div>
   </div>
 """
 
 update: (output, domEl) ->
-
-  usage = (pages) ->
-    mb = (pages * 4096) / 1024 / 1024
+  usage = (pages, pageSize) ->
+    mb = (pages * pageSize) / 1024 / 1024
     usageFormat mb
 
   usageFormat = (mb) ->
@@ -128,23 +159,33 @@ update: (output, domEl) ->
     else
       "#{parseFloat(mb.toFixed())}MB"
 
-  updateStat = (sel, usedPages, totalBytes) ->
-    usedBytes = usedPages * 4096
+  updateStat = (sel, usedPages, pageSize, totalBytes) ->
+    usedBytes = usedPages * pageSize
     percent = (usedBytes / totalBytes * 100).toFixed(1) + "%"
-    $(domEl).find(".#{sel}").text usage(usedPages)
+    $(domEl).find(".#{sel}").text usage(usedPages, pageSize)
     $(domEl).find(".bar-#{sel}").css "width", percent
 
   lines = output.split "\n"
 
-  freePages = lines[3].split(": ")[1]
-  inactivePages = lines[13].split(": ")[1]
-  activePages = lines[12].split(": ")[1]
-  wiredPages = lines[16].split(": ")[1]
+  # ps = 16384
+  ps = lines[1].split(" ")[7]
+  freePages = lines[2].split(": ")[1]
+  activePages = lines[3].split(": ")[1]
+  inactivePages = lines[4].split(": ")[1]
+  speculativePages = lines[5].split(": ")[1]
+  wiredPages = lines[7].split(": ")[1]
+  purgeablePages = lines[8].split(": ")[1]
+  anonymousPages = lines[15].split(": ")[1]
+  compressedPages = lines[17].split(": ")[1]
+  appPages = anonymousPages - purgeablePages
 
-  totalBytes = lines[28]
+  totalBytes = lines[0]
   $(domEl).find(".total").text usageFormat(totalBytes / 1024 / 1024)
+  # $(domEl).find(".total").text lines[0]
 
-  updateStat 'free', freePages, totalBytes
-  updateStat 'active', activePages, totalBytes
-  updateStat 'inactive', inactivePages, totalBytes
-  updateStat 'wired', wiredPages, totalBytes
+  updateStat 'wired', wiredPages, ps, totalBytes
+  updateStat 'free', freePages, ps, totalBytes
+  updateStat 'active', activePages, ps, totalBytes
+  updateStat 'inactive', inactivePages, ps, totalBytes
+  updateStat 'compressed', compressedPages, ps, totalBytes
+  updateStat 'app', appPages, ps, totalBytes
