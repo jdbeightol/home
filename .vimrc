@@ -85,3 +85,5 @@ let g:miniBufExplModSelTarget = 1
 
 set rtp+=/usr/local/opt/fz
 
+let g:airline_theme = 'minimalist'
+
