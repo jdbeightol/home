@@ -14,7 +14,7 @@ alias find='find .'
 # Aliases of linux equivalent commands.
 alias lsblk='diskutil list'
 
-alias dnsflush='sudo killall -HUP mDNSResponder"
+alias dnsflush='sudo killall -HUP mDNSResponder'
 
 # Source the git prompt function and add it into the PS1 if it exists.
 if [ -f "/Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh" ]; then
