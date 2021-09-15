@@ -4,8 +4,19 @@ MILLIS_IN_MINUTE: 60 * 1000
 MILLIS_IN_SECOND: 1000
 
 countdowns: [
-	label: "Wedding"
-	time: "Aug 28, 2021 3:00 PM"
+    {
+        label: "Kelcey Wedding",
+        time: "Oct 30, 2021 3:00 PM"
+    }, {
+        label: "Christmas Break",
+        time: "Dec 10, 2021 6:00 PM"
+    }, {
+        label: "Disney Vacation",
+        time: "May 7, 2022 10:00 AM"
+    }, {
+        label: "Anniversary",
+        time: "Aug 28, 2022 12:00 AM"
+    }
 ]
 
 command: ""
