@@ -54,8 +54,11 @@ c.downloads.position = "bottom"
 c.downloads.remove_finished = 5000
 c.downloads.location.suggestion = "both"
 
-# disable notifications globally because they're annoying
-c.content.notifications.enabled = False
+# disable notifications globally because they're annoying, but only if supported; fail silently
+try:
+    c.content.notifications.enabled = False
+except:
+    pass
 
 # load autoconfig here to ensure local config overrides shared config --e.g.,
 # to use leave-mode rather than mode-leave on v2.0+
