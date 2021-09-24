@@ -1,6 +1,6 @@
 
 mode_leave = "mode-leave ;; jseval -q document.activeElement.blur()"
-if "leave-mode" in c.bindings.default:
+if c.bindings.default['insert']['<Escape>'] == "leave-mode":
     mode_leave = "leave-mode ;; jseval -q document.activeElement.blur()"
 
 # these custom bindings achieve the following:
