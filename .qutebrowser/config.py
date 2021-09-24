@@ -1,3 +1,8 @@
+
+mode_leave = "mode-leave ;; jseval -q document.activeElement.blur()"
+if "leave-mode" in c.bindings.default:
+    mode_leave = "leave-mode ;; jseval -q document.activeElement.blur()"
+
 # these custom bindings achieve the following:
 # - ensure that we leave any text boxes when running mode-leave for
 #   predictability when typing
@@ -6,7 +11,7 @@
 c.bindings.commands = {
   "command": {},
   "insert": {
-    "<Escape>": "mode-leave ;; jseval -q document.activeElement.blur()"
+    "<Escape>": mode_leave 
   },
   "normal": {
     "J": "tab-prev",
