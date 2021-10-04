@@ -9,7 +9,7 @@ export MTLS_CLIENT_CERT_FILE_PATH="/Users/jbeightol/.local/ssl/jbeightol.staff.d
 export WORKSPACE_DIR="${CTHULHU_DIR}"
 
 alias pb='pinboard'
-alias doevans="evans -r --tls --cert '${MTLS_CLIENT_CERT_FILE}' --certkey '${MTLS_CLIENT_KEY_FILE}'"
+alias doevans="evans -r --tls --cert '${MTLS_CLIENT_CERT_FILE_PATH}' --certkey '${MTLS_CLIENT_KEY_FILE_PATH}'"
 alias orca2='orca2-prod'
 alias orca2-prod='doevans --servername orca2.internal.digitalocean.com'
 alias orca2-stage2='doevans --servername orca2-stage2.internal.digitalocean.com'
