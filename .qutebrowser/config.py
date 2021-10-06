@@ -8,9 +8,9 @@ if c.bindings.default['insert']['<Escape>'] == "leave-mode":
     mode_leave = "leave-mode ;; jseval -q document.activeElement.blur()"
 
 # load the correct version of Ctrl+C or Command+C.
-copy_command = "<command+c>"
+copy_command = "<Command+c>"
 if platform != "darwin":
-    copy_command = "<ctrl+c>"
+    copy_command = "<Ctrl+c>"
 
 # these custom bindings achieve the following:
 # - ensure that we leave any text boxes when running mode-leave for
