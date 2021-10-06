@@ -1,9 +1,16 @@
+from sys import platform
+
 # old versions of qutebrowser used the "leave-mode" command; new versions switched
 # to a more consistent "mode-leave" command; we need to re-assign escape based on
 # whichever version of the mode leaving command we have
 mode_leave = "mode-leave ;; jseval -q document.activeElement.blur()"
 if c.bindings.default['insert']['<Escape>'] == "leave-mode":
     mode_leave = "leave-mode ;; jseval -q document.activeElement.blur()"
+
+# load the correct version of Ctrl+C or Command+C.
+copy_command = "<command+c>"
+if platform != "darwin":
+    copy_command = "<ctrl+c>"
 
 # these custom bindings achieve the following:
 # - ensure that we leave any text boxes when running mode-leave for
@@ -21,7 +28,8 @@ c.bindings.commands = {
     "J": "tab-prev",
     "K": "tab-next",
     "j": "scroll-px 0 200",
-    "k": "scroll-px 0 -200"
+    "k": "scroll-px 0 -200",
+    copy_command: "yank --quiet selection"
   }
 }
 
