@@ -7,18 +7,17 @@ mode_leave = "mode-leave ;; jseval -q document.activeElement.blur()"
 if c.bindings.default['insert']['<Escape>'] == "leave-mode":
     mode_leave = "leave-mode ;; jseval -q document.activeElement.blur()"
 
-# load the correct version of Ctrl+C or Command+C.
-copy_command = "<Command+c>"
-if platform != "darwin":
-    copy_command = "<Ctrl+c>"
+# set the correct version of the Ctrl or Command modifier for the operating system
+ctrl_mod = "Ctrl"
+if platform == "darwin":
+    ctrl_mod = "Command"
 
 # these custom bindings achieve the following:
 # - ensure that we leave any text boxes when running mode-leave for
 #   predictability when typing
 # - to help with scrolling speed
 # - switch J and K tab direction to be "left/right" rather than "up/down"
-c.bindings.commands = {
-  "command": {},
+custom_commands = {
   "insert": {
     "<Escape>": mode_leave 
   },
@@ -27,11 +26,20 @@ c.bindings.commands = {
     "<Shift-Space>": "scroll-page 0 -1",
     "J": "tab-prev",
     "K": "tab-next",
+    "h": "scroll-px -200 0",
     "j": "scroll-px 0 200",
     "k": "scroll-px 0 -200",
-    copy_command: "yank --quiet selection"
+    "l": "scroll-px 200 0",
+    "<%s+c>" % ctrl_mod: "yank --quiet selection"
   }
 }
+
+# use the recommended `config.bind(...)` mechanism rather than setting the
+# commands or default maps directly.
+for mode in custom_commands:
+    commands = custom_commands[mode]
+    for key in commands:
+        config.bind(key, commands[key], mode=mode)
 
 # this is our editor command; it may not be portable since kitty isn't portable
 c.editor.command = ["/usr/local/bin/kitty", "vim", "-f", "{file}", "-c", "normal {line}G{column0}l"]
