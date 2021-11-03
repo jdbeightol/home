@@ -5,9 +5,6 @@ MILLIS_IN_SECOND: 1000
 
 countdowns: [
     {
-        label: "Kelcey Wedding",
-        time: "Oct 30, 2021 3:00 PM"
-    }, {
         label: "Christmas Break",
         time: "Dec 10, 2021 6:00 PM"
     }, {

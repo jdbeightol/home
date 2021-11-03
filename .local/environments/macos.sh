@@ -10,6 +10,7 @@ alias ll='ls -lhG'
 alias la='ls -alhG'
 alias du='du -d 1 -c -h -x'
 alias find='find .'
+alias jupyter='docker run -d --rm -v "${HOME}/Documents":/home/jovyan/work -p 8888:8888 jupyter/datascience-notebook:latest'
 
 # Aliases of linux equivalent commands.
 alias lsblk='diskutil list'
