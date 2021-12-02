@@ -10,7 +10,12 @@ alias ll='ls -lhG'
 alias la='ls -alhG'
 alias du='du -d 1 -c -h -x'
 alias find='find .'
-alias jupyter='docker run -d --rm -v "${HOME}/Documents":/home/jovyan/work -p 8888:8888 jupyter/datascience-notebook:latest'
+alias jupyter='
+    [[ -z $(docker ps -q -a -f "name=jupyter") ]] && (   
+        docker run -d --rm -v "${HOME}/Documents/jupyter":/home/jovyan/work -p 8888:8888 --name jupyter jupyter/datascience-notebook:latest &&
+        sleep 5 # todo --replace with something that actually works rather than waits
+    ); open "http://127.0.0.1:8888/?token=$(docker exec jupyter jupyter notebook list --json | jq --raw-output .token)"
+'
 
 # Aliases of linux equivalent commands.
 alias lsblk='diskutil list'
