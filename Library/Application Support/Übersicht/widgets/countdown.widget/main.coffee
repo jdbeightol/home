@@ -5,9 +5,6 @@ MILLIS_IN_SECOND: 1000
 
 countdowns: [
     {
-        label: "Christmas Break",
-        time: "Dec 10, 2021 6:00 PM"
-    }, {
         label: "Disney Vacation",
         time: "May 7, 2022 10:00 AM"
     }, {
