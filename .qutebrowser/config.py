@@ -59,9 +59,6 @@ c.input.forward_unbound_keys = "none"
 # load tabs in the foreground; we can use ;r for background loading
 c.tabs.background = False
 
-# make it so the last used input mode is restored when switching tabs
-c.tabs.mode_on_change = "restore"
-
 # disable favicons in tabs because they're hard to see anyways
 c.tabs.favicons.show = "never"
 
