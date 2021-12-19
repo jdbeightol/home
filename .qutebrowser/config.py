@@ -77,6 +77,12 @@ try:
 except:
     pass
 
+with config.pattern('*://*.sol/*') as p:
+    p.content.blocking.enabled = False
+
+with config.pattern('*://*.sol:*/*') as p:
+    p.content.blocking.enabled = False
+
 # load autoconfig here to ensure local config overrides shared config --e.g.,
 # to use leave-mode rather than mode-leave on v2.0+
 config.load_autoconfig()
