@@ -8,7 +8,7 @@ export PS1="\[\e[1;31m\][\t]\[\e[0m\] \[\e[1;30m\]\h:\w\[\e[0m\]\n\[\e[0;34m\]\u
 
 case "$-" in
     *i*)
-        if [ "${BASH}" == "/bin/bash" ] || [ "${BASH}" == "/usr/bin/bash" ]; then
+        if [ -n "${BASH}" ]; then
             # Load any files from a user's profile.d directory.
             if [[ -d "${HOME}/.local/profile.d" ]]; then
                 for PROFILE_FILE in "${HOME}/.local/profile.d/"*; do
