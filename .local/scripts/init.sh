@@ -5,7 +5,7 @@ GIT_DIR="${HOME}/.cfg"
 
 # Check for required packages, failures will cause the script to exit when running bash with -e
 echo "Checking for required packages..."
-which git
+command -v git
 
 echo "Cloning repository..."
 
