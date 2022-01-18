@@ -13,7 +13,7 @@ alias grep='grep --color=auto -n'
 alias letters='sed "s/\(.\)./\1/g" <<< '
 alias emacs='emacs -nw'
 
-which vim &>/dev/null && alias vi='vim'
+command -v vim &>/dev/null && alias vi='vim'
 
 alias line='printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr " " -'
 
