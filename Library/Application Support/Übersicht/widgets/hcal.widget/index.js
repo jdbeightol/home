@@ -3,7 +3,7 @@ command: "echo Hello World!",
 
 dayNames: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
 monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-offdayIndices: [5, 6], // Fr, Sa
+offdayIndices: [6, 0], // Sa, Su
  
 refreshFrequency: 5000,
 displayedDate: null,

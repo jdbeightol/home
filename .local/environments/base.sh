@@ -27,8 +27,3 @@ if [ -f "/etc/bash_completion.d/git" ]; then
     export PS1="\[\e[1;31m\][\t]\[\e[0m\] \[\e[1;30m\]\H:\w\$(__git_ps1)\[\e[0m\]\n\[\e[0;34m\]\u->\[\e[0m\] "
 fi
 
-# Source fzf config if it exists
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-[ -f ~/.local/scripts/goto.sh ] && source ~/.local/scripts/goto.sh
-
