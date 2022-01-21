@@ -15,15 +15,14 @@ alias emacs='emacs -nw'
 
 command -v vim &>/dev/null && alias vi='vim'
 
-alias line='printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr " " -'
+# Draw a line across the terminal
+command -v tput &>/dev/null && alias line='printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr " " -'
 
 # Alias dotfile config management
 alias .f='git --git-dir $HOME/.cfg/ --work-tree $HOME'
 
 # Source the git prompt function and add it into the PS1 if it exists.
-if [ -f "/etc/bash_completion.d/git" ]; then
-    source /etc/bash_completion.d/git
-
-    export PS1="\[\e[1;31m\][\t]\[\e[0m\] \[\e[1;30m\]\H:\w\$(__git_ps1)\[\e[0m\]\n\[\e[0;34m\]\u->\[\e[0m\] "
+if command -v __git_ps1 &>/dev/null; then
+    env::ps1::set_custom '$(__git_ps1)'
 fi
 

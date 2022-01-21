@@ -22,13 +22,6 @@ alias lsblk='diskutil list'
 
 alias dnsflush='sudo killall -HUP mDNSResponder'
 
-# Source the git prompt function and add it into the PS1 if it exists.
-if [ -f "/Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh" ]; then
-    source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
-
-    export PS1="\[\e[1;31m\][\t]\[\e[0m\] \[\e[1;30m\]\h:\w\$(__git_ps1)\[\e[0m\]\n\[\e[0;34m\]\u->\[\e[0m\] "
-fi
-
 if [[ -f /opt/local/bin/port ]]; then
     export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 fi

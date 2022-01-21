@@ -7,7 +7,7 @@ export BASH_PROFILE_SOURCED=1
 alias ll='ls -lh'
 alias la='ll -a'
 
-# Set custom shell prompt for bash.
+# Set an initial shell prompt for bash. This should get overwritten later, but we want to make sure it is set in all cases.
 export PS1="\[\e[1;31m\][\t]\[\e[0m\] \[\e[1;30m\]\h:\w\[\e[0m\]\n\[\e[0;34m\]\u->\[\e[0m\] "
 
 case "$-" in

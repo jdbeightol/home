@@ -1,6 +1,7 @@
 function env::init() {
     env::init::echo
     env::init::style
+    env::init::ps1
 }
 
 function env::init::style() {
@@ -8,6 +9,12 @@ function env::init::style() {
     ENV_COLOR_PRIMARY="\033[36m"
     ENV_COLOR_ACCENT="\033[33m"
     ENV_RESET="\033[0m"
+}
+
+function env::init::ps1() {
+    ENV_PS1="\[\e[1;31m\][\t]\[\e[0m\] \[\e[1;30m\]\h:\w\[\e[0m\]\n\[\e[0;34m\]\u->\[\e[0m\] "
+    ENV_PS1_HOSTNAME='\\h'
+    ENV_PS1_CUSTOM=''
 }
 
 function env::init::echo() {
@@ -47,6 +54,20 @@ function env::extends() {
     fi
 }
 
+function env::ps1() {
+    echo "${ENV_PS1}" |
+        sed -e "s/\\\\h/${ENV_PS1_HOSTNAME}/g" |
+        sed -e "s/\\\\w/\\\\w${ENV_PS1_CUSTOM}/g"
+}
+
+function env::ps1::set_hostname() {
+    ENV_PS1_HOSTNAME="$1"
+}
+
+function env::ps1::set_custom() {
+    ENV_PS1_CUSTOM="$1"
+}
+
 function env::load() {
     env::init
     env::echo -ne "${ENV_STYLE}Configuration hierarchy: ${ENV_COLOR_PRIMARY}profile"
@@ -63,4 +84,6 @@ function env::load() {
     env::extends "${ENVIRONMENT}"
     env::echo -e "${ENV_RESET}"
     env::echo::flush
+    export PS1="$(env::ps1)"
 }
+
