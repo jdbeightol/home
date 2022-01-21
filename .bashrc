@@ -1,5 +1,5 @@
-# Always source the profile configuration.
-if [[ -f "$HOME/.profile" ]]; then
-    source "$HOME/.profile"
+# Always source the bash profile configuration.
+if [[ -f "$HOME/.bash_profile" ]]; then
+    source "$HOME/.bash_profile"
 fi
 

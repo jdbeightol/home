@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # goto depends on fzf, so don't load if it's not present
-which fzf 2>&1 1>/dev/null || ( echo 'the goto alias requires fzf to run'; return 1 )
+command -v fzf 2>&1 1>/dev/null || return 1
 
 GOTO_CACHE_FILE="${HOME}/.goto"
 
