@@ -12,19 +12,17 @@ export PS1="\[\e[1;31m\][\t]\[\e[0m\] \[\e[1;30m\]\h:\w\[\e[0m\]\n\[\e[0;34m\]\u
 
 case "$-" in
     *i*)
-        if [ -n "${BASH}" ]; then
-            # Load any files from a user's profile.d directory.
-            if [[ -d "${HOME}/.local/profile.d" ]]; then
-                for PROFILE_FILE in "${HOME}/.local/profile.d/"*; do
-                    if [[ "${PROFILE_FILE}" != "${HOME}/.local/profile.d/*" ]]; then
-                        source "${PROFILE_FILE}"
-                    fi
-                done
-            fi
-
-            # Attempt to load environment-based configuration if supported.
-            declare -F env::load &>/dev/null && env::load
+        # Load any files from a user's profile.d directory.
+        if [[ -d "${HOME}/.local/profile.d" ]]; then
+            for PROFILE_FILE in "${HOME}/.local/profile.d/"*; do
+                if [[ "${PROFILE_FILE}" != "${HOME}/.local/profile.d/*" ]]; then
+                    source "${PROFILE_FILE}"
+                fi
+            done
         fi
+
+        # Attempt to load environment-based configuration if supported.
+        declare -F env::load &>/dev/null && env::load
     ;;
 esac
 
