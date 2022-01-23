@@ -1,8 +1,3 @@
-# Check if bash_profile has already been sourced.
-
-[ -n "${BASH_PROFILE_SOURCED}" ] && return 0
-export BASH_PROFILE_SOURCED=1
-
 # Basic Configuration
 alias ll='ls -lh'
 alias la='ll -a'
