@@ -14,7 +14,7 @@ function env::init::style() {
 function env::init::ps1() {
     ENV_PS1="\[\e[1;31m\][\t]\[\e[0m\] \[\e[1;30m\]\h:\w\[\e[0m\]\n\[\e[0;34m\]\u->\[\e[0m\] "
     ENV_PS1_HOSTNAME='\\h'
-    ENV_PS1_USERNAME='\\w'
+    ENV_PS1_USERNAME='\\u'
     ENV_PS1_CUSTOM=''
 }
 
