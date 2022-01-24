@@ -1,5 +1,5 @@
 # Test if we have already loaded the env configuration and return early if so
-declare -F env::load && return 0
+declare -F env::load &>/dev/null && return 0
 
 # Basic Configuration
 alias ll='ls -lh'
