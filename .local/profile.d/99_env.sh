@@ -13,9 +13,8 @@ function env::init::style() {
 
 function env::init::ps1() {
     ENV_PS1="\[\e[1;31m\][\t]\[\e[0m\] \[\e[1;30m\]\h:\w\[\e[0m\]\n\[\e[0;34m\]\u->\[\e[0m\] "
-    ENV_PS1_HOSTNAME='\\h'
-    ENV_PS1_USERNAME='\\u'
-    ENV_PS1_CUSTOM=''
+    ENV_PS1_OPTIONS=()
+
 }
 
 function env::init::echo() {
@@ -56,22 +55,28 @@ function env::extends() {
 }
 
 function env::ps1() {
-    echo "${ENV_PS1}" |
-        sed -e "s/\\\\w/\\\\w${ENV_PS1_CUSTOM}/g" |
-        sed -e "s/\\\\h/${ENV_PS1_HOSTNAME}/g" |
-        sed -e "s/\\\\u/${ENV_PS1_USERNAME}/g"
+    local ps1="${ENV_PS1}"
+    for opt in "${ENV_PS1_OPTIONS[@]}"; do
+        ps1="$(echo "$ps1" | eval $opt)"
+    done
+    echo "$ps1"
 }
 
+function env::ps1::add_option() {
+    ENV_PS1_OPTIONS+=("$1")
+}
+
+
 function env::ps1::set_hostname() {
-    ENV_PS1_HOSTNAME="$1"
+    env::ps1::add_option "sed -e 's/\\\\h/$1/g'"
 }
 
 function env::ps1::set_username() {
-    ENV_PS1_USERNAME="$1"
+    env::ps1::add_option "sed -e 's/\\\\u/$1/g'"
 }
 
-function env::ps1::set_custom() {
-    ENV_PS1_CUSTOM="$1"
+function env::ps1::set_git_prompt() {
+    env::ps1::add_option "sed -e 's/\\\\w/\\\\w$1/g'"
 }
 
 function env::load() {
