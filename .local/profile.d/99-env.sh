@@ -14,6 +14,7 @@ function env::init::style() {
 function env::init::ps1() {
     ENV_PS1="\[\e[1;31m\][\t]\[\e[0m\] \[\e[1;30m\]\h:\w\[\e[0m\]\n\[\e[0;34m\]\u->\[\e[0m\] "
     ENV_PS1_HOSTNAME='\\h'
+    ENV_PS1_USERNAME='\\w'
     ENV_PS1_CUSTOM=''
 }
 
@@ -56,12 +57,17 @@ function env::extends() {
 
 function env::ps1() {
     echo "${ENV_PS1}" |
+        sed -e "s/\\\\w/\\\\w${ENV_PS1_CUSTOM}/g" |
         sed -e "s/\\\\h/${ENV_PS1_HOSTNAME}/g" |
-        sed -e "s/\\\\w/\\\\w${ENV_PS1_CUSTOM}/g"
+        sed -e "s/\\\\u/${ENV_PS1_USERNAME}/g"
 }
 
 function env::ps1::set_hostname() {
     ENV_PS1_HOSTNAME="$1"
+}
+
+function env::ps1::set_username() {
+    ENV_PS1_USERNAME="$1"
 }
 
 function env::ps1::set_custom() {
