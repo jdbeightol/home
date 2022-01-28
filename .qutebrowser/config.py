@@ -71,6 +71,9 @@ c.downloads.position = "bottom"
 c.downloads.remove_finished = 5000
 c.downloads.location.suggestion = "both"
 
+# use all letters for hints
+c.hints.chars = "asdfghjklqwertyuiopzxcvbnm"
+
 # disable notifications globally because they're annoying, but only if supported; fail silently
 try:
     c.content.notifications.enabled = False
