@@ -31,6 +31,7 @@ yabai -m config window_gap                   3
 
 # rules for troublesome windows
 yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^Installer$" manage=off
 yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on
 
 echo "yabai configuration loaded.."
