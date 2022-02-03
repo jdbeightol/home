@@ -23,7 +23,10 @@ echo "Updating submodules..."
 
 git --git-dir "${GIT_DIR}" --work-tree "${HOME}" submodule update --init
 
-echo "Complete.  See aliases below for help."
+echo "Init complete!  Sourcing bashrc..."
+
+source "${HOME}/.bashrc"
+
+echo "Useful aliases for managing configuration:"
 
 alias .f
-
