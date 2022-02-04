@@ -71,8 +71,9 @@ c.downloads.position = "bottom"
 c.downloads.remove_finished = 5000
 c.downloads.location.suggestion = "both"
 
-# use all letters for hints
+# use all letters for hints and increase size
 c.hints.chars = "asdfghjklqwertyuiopzxcvbnm"
+c.fonts.hints = "bold 14pt default_family"
 
 # disable notifications globally because they're annoying, but only if supported; fail silently
 try:
