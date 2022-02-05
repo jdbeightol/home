@@ -1,5 +1,5 @@
 # Test if we have already loaded the env configuration and return early if so
-declare -F env::load &>/dev/null && return 0
+declare -F env::main &>/dev/null && return 0
 
 # Basic Configuration
 alias ll='ls -lh'
@@ -20,7 +20,7 @@ case "$-" in
         fi
 
         # Attempt to load environment-based configuration if supported.
-        declare -F env::load &>/dev/null && env::load
+        declare -F env::main &>/dev/null && env::main
     ;;
 esac
 

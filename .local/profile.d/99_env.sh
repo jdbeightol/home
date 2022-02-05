@@ -54,7 +54,7 @@ function env::extends() {
     fi
 }
 
-function env::ps1() {
+function env::prompt() {
     local ps1="${ENV_PS1}"
     for opt in "${ENV_PS1_OPTIONS[@]}"; do
         ps1="$(echo "$ps1" | eval $opt)"
@@ -62,27 +62,37 @@ function env::ps1() {
     echo "$ps1"
 }
 
-function env::ps1::add_option() {
+function env::prompt::set() {
+    export PS1="$@"
+}
+
+function env::prompt::add_option() {
     ENV_PS1_OPTIONS+=("$1")
 }
 
 
-function env::ps1::set_hostname() {
-    env::ps1::add_option "sed -e 's/\\\\h/$1/g'"
+function env::prompt::set_hostname() {
+    env::prompt::add_option "sed -e 's/\\\\h/$1/g'"
 }
 
-function env::ps1::set_username() {
-    env::ps1::add_option "sed -e 's/\\\\u/$1/g'"
+function env::prompt::set_username() {
+    env::prompt::add_option "sed -e 's/\\\\u/$1/g'"
 }
 
-function env::ps1::set_git_prompt() {
-    env::ps1::add_option "sed -e 's/\\\\w/\\\\w$1/g'"
+function env::prompt::set_git_prompt() {
+    env::prompt::add_option "sed -e 's/\\\\w/\\\\w$1/g'"
 }
 
 function env::load() {
     env::init
     env::echo -ne "${ENV_STYLE}Configuration hierarchy: ${ENV_COLOR_PRIMARY}profile"
+    env::extends "${1}"
+    env::echo -e "${ENV_RESET}"
+    env::echo::flush
+    env::prompt::set "$(env::prompt)"
+}
 
+function env::main() {
     export ENVIRONMENT=`awk '{split($0,a,"."); print tolower(a[1])}' <<< "$HOSTNAME"`
     if [ -e "${HOME}/.environment" ]; then
         source "${HOME}/.environment"
@@ -92,9 +102,6 @@ function env::load() {
         export ENVIRONMENT="base"
     fi
 
-    env::extends "${ENVIRONMENT}"
-    env::echo -e "${ENV_RESET}"
-    env::echo::flush
-    export PS1="$(env::ps1)"
+    env::load "${ENVIRONMENT}"
 }
 

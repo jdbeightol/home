@@ -27,6 +27,6 @@ alias .f='git --git-dir $HOME/.cfg/ --work-tree $HOME'
 
 # Source the git prompt function and add it into the PS1 if it exists.
 if command -v __git_ps1 &>/dev/null; then
-    env::ps1::set_git_prompt '$(__git_ps1)'
+    env::prompt::set_git_prompt '$(__git_ps1)'
 fi
 

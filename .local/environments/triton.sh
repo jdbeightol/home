@@ -8,4 +8,5 @@ export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 export PATH="$PATH:~/.emacs.d/bin"
 export PYTHONPATH="$HOME/.local/lib/python"
 
-env::ps1::set_hostname Triton
+env::prompt::set_hostname Triton
+

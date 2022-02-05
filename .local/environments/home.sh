@@ -14,3 +14,6 @@ fi
 export GOPATH="$HOME/.local/go"
 export WORKSPACE_DIR="${HOME}/Workspace"
 
+export NOMAD_ADDR="http://mimas.saturn.sol:4646"
+export CONSUL_HTTP_ADDR="http://mimas.saturn.sol:8500"
+
