@@ -13,3 +13,6 @@
 [submodule ".vim/pack/plugins/start/nerdtree"]
 	path = .vim/pack/plugins/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree
+[submodule ".local/share/framework"]
+	path = .local/share/framework
+	url = https://github.com/jdbeightol/framework.git
