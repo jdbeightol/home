@@ -19,9 +19,6 @@ command -v vim &>/dev/null && alias vi='vim'
 # Draw a line across the terminal
 command -v tput &>/dev/null && alias line='printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr " " -'
 
-# Override cat with bat
-command -v bat &>/dev/null && alias cat="bat"
-
 # Alias dotfile config management
 alias .f='git --git-dir $HOME/.cfg/ --work-tree $HOME'
 
