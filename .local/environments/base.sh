@@ -30,6 +30,8 @@ if command -v __git_ps1 &>/dev/null; then
     env::prompt::set_git_prompt '$(__git_ps1)'
 fi
 
-GPG_TTY=$(tty)
-export GPG_TTY
+export GPG_TTY=$(tty)
 
+if command -v zoxide &>/dev/null; then
+    eval "$(zoxide init bash)"
+fi
