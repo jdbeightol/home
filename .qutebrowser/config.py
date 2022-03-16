@@ -75,17 +75,19 @@ c.downloads.location.suggestion = "both"
 c.hints.chars = "asdfghjklqwertyuiopzxcvbnm"
 c.fonts.hints = "bold 14pt default_family"
 
-# disable notifications globally because they're annoying, but only if supported; fail silently
+# disable notifications because they're annoying and other content blocking,
+# but only if supported; fail silently
 try:
     c.content.notifications.enabled = False
+
+    with config.pattern('*://*.sol/*') as p:
+        p.content.blocking.enabled = False
+
+    with config.pattern('*://*.sol:*/*') as p:
+        p.content.blocking.enabled = False
+
 except:
     pass
-
-with config.pattern('*://*.sol/*') as p:
-    p.content.blocking.enabled = False
-
-with config.pattern('*://*.sol:*/*') as p:
-    p.content.blocking.enabled = False
 
 # load autoconfig here to ensure local config overrides shared config --e.g.,
 # to use leave-mode rather than mode-leave on v2.0+
