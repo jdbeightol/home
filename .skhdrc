@@ -163,11 +163,7 @@ fn + shift - w : yabai -m window --display 1
 fn + shift - e : yabai -m window --display 2
 fn + shift - r : yabai -m window --display 3
 
-# dmenu
-fn - p : dmenu-mac
-
-# terminal hotkeys
-fn + shift - 0x24 : kitty -1 -d ~
+# terminal hotkey (does not match xmonad)
 ctrl - 0x32 [
     "Code" ~
     * : kitty -1 -d ~
