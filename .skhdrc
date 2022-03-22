@@ -129,7 +129,7 @@ fn + shift - k : yabai -m window --swap next
 fn + shift - space : yabai -m space --balance
 
 # rotate through algorithms
-fn - space : yabai-toggle
+fn - space : /usr/local/bin/yabai-toggle
 
 # float / unfloat window and center on screen
 fn - t : yabai -m window --toggle float;\
