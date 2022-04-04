@@ -18,11 +18,12 @@ alias todo='
 echo mine; line
 mine
 echo; echo backlog; line
-jira list -l 10 -n todo -p Orca
+jira list -l 10 -n todo
 echo; echo epics; line;
-jira list -l 10 -n epics -p Orca
+jira list -l 10 -n epics
 echo; echo in-progress epic stories; line;
-jira list -n epics-inprogress -p Orca -t listissueonly | xargs -I{} jira epic ls {} -t list'
+jira list -n epics-inprogress -t listissueonly | xargs -I{} jira epic ls {} -t list
+'
 alias j='jira'
 alias flipperctl='docker run --rm docker.internal.digitalocean.com/compute/flipperctl'
 
