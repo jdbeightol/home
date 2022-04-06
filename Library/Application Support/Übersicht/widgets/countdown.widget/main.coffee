@@ -6,10 +6,22 @@ MILLIS_IN_SECOND: 1000
 countdowns: [
     {
         label: "Disney Vacation",
-        time: "May 7, 2022 10:00 AM"
+        time: "May 6, 2022 1:00 PM"
     }, {
         label: "Anniversary",
         time: "Aug 28, 2022 12:00 AM"
+    }, {
+        label: "Obsessed Fest",
+        time: "Sep 30, 2022 10:00 AM"
+    }, {
+        label: "Vegas Maybe?",
+        time: "Oct 3, 2022 12:00 AM"
+    }, {
+        label: "Nicole's Day",
+        time: "July 18, 2022 12:00 AM"
+    }, {
+        label: "Christmas",
+        time: "Dec 25, 2022 12:00 AM"
     }
 ]
 

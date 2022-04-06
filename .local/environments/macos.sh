@@ -17,6 +17,8 @@ alias jupyter='
     ); open "http://127.0.0.1:8888/?token=$(docker exec jupyter jupyter notebook list --json | jq --raw-output .token)"
 '
 
+alias yoink="open -a Yoink"
+
 # Aliases of linux equivalent commands.
 alias lsblk='diskutil list'
 
