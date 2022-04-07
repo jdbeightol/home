@@ -8,6 +8,9 @@ countdowns: [
         label: "Disney Vacation",
         time: "May 6, 2022 1:00 PM"
     }, {
+        label: "Nicole's Day",
+        time: "July 18, 2022 12:00 AM"
+    }, {
         label: "Anniversary",
         time: "Aug 28, 2022 12:00 AM"
     }, {
@@ -16,9 +19,6 @@ countdowns: [
     }, {
         label: "Vegas Maybe?",
         time: "Oct 3, 2022 12:00 AM"
-    }, {
-        label: "Nicole's Day",
-        time: "July 18, 2022 12:00 AM"
     }, {
         label: "Christmas",
         time: "Dec 25, 2022 12:00 AM"
