@@ -8,6 +8,8 @@ export MTLS_CLIENT_CERT_FILE_PATH="/Users/jbeightol/.local/ssl/jbeightol.staff.d
 # This needs to be executed after the CTHLUHU environment setup
 export WORKSPACE_DIR="${CTHULHU_DIR}"
 
+export PATH="${PATH}:${HOME}/.cargo/bin"
+
 alias pb='pinboard'
 alias doevans='evans -r --tls --cert "${MTLS_CLIENT_CERT_FILE_PATH}" --certkey "${MTLS_CLIENT_KEY_FILE_PATH}"'
 alias orca2='orca2-prod'
