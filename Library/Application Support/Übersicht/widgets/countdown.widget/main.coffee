@@ -5,9 +5,6 @@ MILLIS_IN_SECOND: 1000
 
 countdowns: [
     {
-        label: "Disney Vacation",
-        time: "May 6, 2022 1:00 PM"
-    }, {
         label: "Nicole's Day",
         time: "July 18, 2022 12:00 AM"
     }, {
