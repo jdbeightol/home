@@ -87,3 +87,5 @@ set rtp+=/usr/local/opt/fz
 
 let g:airline_theme = 'minimalist'
 
+let g:jsonnet_fmt_on_save = 0
+

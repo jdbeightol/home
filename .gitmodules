@@ -24,3 +24,6 @@
 	path = .config/kitty/kitty-alternative-icon
 	url = https://github.com/hristost/kitty-alternative-icon.git
 	branch = main
+[submodule ".vim/pack/plugins/start/vim-jsonnet"]
+	path = .vim/pack/plugins/start/vim-jsonnet
+	url = https://github.com/google/vim-jsonnet.git
