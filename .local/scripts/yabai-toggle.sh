@@ -4,6 +4,9 @@ TYPE=$(yabai -m query --spaces --space | jq --raw-output .type)
 
 case "${TYPE}" in
     bsp)
+        TYPE=float
+    ;;
+    float)
         TYPE=stack
     ;;
     *)
