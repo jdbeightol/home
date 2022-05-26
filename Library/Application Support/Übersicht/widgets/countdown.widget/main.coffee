@@ -5,6 +5,12 @@ MILLIS_IN_SECOND: 1000
 
 countdowns: [
     {
+        label: "Landon's Day",
+        time: "May 29, 2022 12:00 AM"
+    }, {
+        label: "Liam's Day",
+        time: "June 29, 2022 12:00 AM"
+    }, {
         label: "Nicole's Day",
         time: "July 18, 2022 12:00 AM"
     }, {
@@ -19,6 +25,9 @@ countdowns: [
     }, {
         label: "Christmas",
         time: "Dec 25, 2022 12:00 AM"
+    }, {
+        label: "My Day",
+        time: "Jan 13, 2023 12:00 AM"
     }
 ]
 
