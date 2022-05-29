@@ -5,9 +5,6 @@ MILLIS_IN_SECOND: 1000
 
 countdowns: [
     {
-        label: "Landon's Day",
-        time: "May 29, 2022 12:00 AM"
-    }, {
         label: "Liam's Day",
         time: "June 29, 2022 12:00 AM"
     }, {
