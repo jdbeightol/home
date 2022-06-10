@@ -168,3 +168,11 @@ ctrl - 0x32 [
     "Code" ~
     * : kitty -1 -d ~
 ]
+
+# nereid dashboard control
+fn - 0x69 : curl http://10.12.13.21:8080/left
+fn - 0x71 : curl http://10.12.13.21:8080/right
+fn - 0x6B : osascript ~/.local/scripts/dashboard.as | curl -XPUT 10.12.13.21:8080/tab -d @-
+fn + shift - 0x6B : curl http://10.12.13.21:8080/tab
+fn + alt - 0x6B : curl -XDELETE http://10.12.13.21:8080/tab
+fn + ctrl - 0x6B : curl http://10.12.13.21:8080/rotate
