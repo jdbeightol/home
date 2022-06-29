@@ -95,19 +95,26 @@ update: (output, domEl) ->
 	# $root.html new Date @countdowns[1].time
 	for countdown in @countdowns
 		millisUntil = countdown.millis - now
-		timeUntil = {}
 
-		timeUntil.days = millisUntil // @MILLIS_IN_DAY
-		millisUntil %= @MILLIS_IN_DAY
+		timeUntil = {
+			days: 0,
+			hours: 0,
+			minutes: 0,
+			seconds: 0
+		}
 
-		timeUntil.hours = millisUntil // @MILLIS_IN_HOUR
-		millisUntil %= @MILLIS_IN_HOUR
+		if millisUntil > 0
+			timeUntil.days = millisUntil // @MILLIS_IN_DAY
+			millisUntil %= @MILLIS_IN_DAY
 
-		timeUntil.minutes = millisUntil // @MILLIS_IN_MINUTE
-		millisUntil %= @MILLIS_IN_MINUTE
+			timeUntil.hours = millisUntil // @MILLIS_IN_HOUR
+			millisUntil %= @MILLIS_IN_HOUR
 
-		timeUntil.seconds = millisUntil // @MILLIS_IN_SECOND
-		millisUntil %= @MILLIS_IN_SECOND
+			timeUntil.minutes = millisUntil // @MILLIS_IN_MINUTE
+			millisUntil %= @MILLIS_IN_MINUTE
+
+			timeUntil.seconds = millisUntil // @MILLIS_IN_SECOND
+			millisUntil %= @MILLIS_IN_SECOND
 
 		$countdownList.append("""
 			<li>
