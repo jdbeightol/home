@@ -13,6 +13,8 @@ alias grep='grep --color=auto -n'
 alias letters='sed "s/\(.\)./\1/g" <<< '
 alias emacs='emacs -nw'
 
+alias icat="kitty +kitten icat"
+
 # Always override vi with vim
 command -v vim &>/dev/null && alias vi='vim'
 

@@ -5,23 +5,20 @@ MILLIS_IN_SECOND: 1000
 
 countdowns: [
     {
-        label: "Nicole's Day",
-        time: "July 18, 2022 12:00 AM"
-    }, {
         label: "Anniversary",
         time: "Aug 28, 2022 12:00 AM"
     }, {
         label: "Obsessed Fest",
         time: "Sep 30, 2022 10:00 AM"
     }, {
-        label: "Vegas Maybe?",
-        time: "Oct 3, 2022 12:00 AM"
-    }, {
         label: "Christmas",
         time: "Dec 25, 2022 12:00 AM"
     }, {
         label: "My Day",
         time: "Jan 13, 2023 12:00 AM"
+    }, {
+        label: "Nicole's Day",
+        time: "July 18, 2023 12:00 AM"
     }
 ]
 
