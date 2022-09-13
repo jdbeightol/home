@@ -19,6 +19,9 @@ countdowns: [
     }, {
         label: "Nicole's Day",
         time: "July 18, 2023 12:00 AM"
+    }, {
+        label: "Anniversary",
+        time: "Aug 28, 2023 12:00 AM"
     }
 ]
 
