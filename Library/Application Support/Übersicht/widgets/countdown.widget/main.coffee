@@ -5,9 +5,6 @@ MILLIS_IN_SECOND: 1000
 
 countdowns: [
     {
-        label: "Anniversary",
-        time: "Aug 28, 2022 12:00 AM"
-    }, {
         label: "Obsessed Fest",
         time: "Sep 30, 2022 10:00 AM"
     }, {
