@@ -8,7 +8,8 @@ module.exports = {
       match: [
         "calendar.google.com*",
         "meet.google.com*",
-        "do.co/bbzd"
+        "do.co/bbzd",
+        "digitalocean.slack.com*"
       ],
       browser: "Google Chrome"
     },
