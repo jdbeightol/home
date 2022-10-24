@@ -9,6 +9,7 @@ module.exports = {
         "calendar.google.com*",
         "meet.google.com*",
         "do.co/bbzd",
+        "do.co/coffee",
         "digitalocean.slack.com*",
         "grafana.internal.digitalocean.com*",
         "grafana.s2r1.internal.digitalocean.com*"
