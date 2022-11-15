@@ -11,6 +11,7 @@ module.exports = {
         "do.co/bbzd",
         "do.co/coffee",
         "digitalocean.slack.com*",
+        "pilot.digitalocean.com*",
         "grafana.internal.digitalocean.com*",
         "grafana.s2r1.internal.digitalocean.com*"
       ],
