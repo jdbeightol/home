@@ -11,7 +11,7 @@ function vault::auth() {
 
     # Check if the expiration is either empty or if we are after the expiration period
     if [[ -z "${VAULT_EXPIRE}" ]] || [[ ${date} -ge ${VAULT_EXPIRE} ]]; then
-        local token="$(vault login -method=okta -token-only username=$USER)"
+        local token="$(vault login -method=oidc -path=oidc-okta -token-only username=$USER)"
 
         if [[ -z "${token}" ]]; then
             1>&2 echo "returning: no token available"
