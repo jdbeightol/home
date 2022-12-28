@@ -5,17 +5,20 @@ MILLIS_IN_SECOND: 1000
 
 countdowns: [
     {
-        label: "Christmas",
-        time: "Dec 25, 2022 12:00 AM"
-    }, {
         label: "My Day",
         time: "Jan 13, 2023 12:00 AM"
+    }, {
+        label: "Tax Day",
+        time: "April 15, 2023 12:00 AM"
     }, {
         label: "Nicole's Day",
         time: "July 18, 2023 12:00 AM"
     }, {
         label: "Anniversary",
         time: "Aug 28, 2023 12:00 AM"
+    }, {
+        label: "Christmas",
+        time: "Dec 25, 2023 12:00 AM"
     }
 ]
 
