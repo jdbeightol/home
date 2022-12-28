@@ -12,4 +12,4 @@ if [[ -n "${BASH_REMATCH[4]}" ]]; then
     GIT_PORT="${BASH_REMATCH[4]}"
 fi
 
-echo ssh -p "${GIT_PORT}" "${GIT_HOST}"
+ssh -p "${GIT_PORT}" "${GIT_HOST}"
