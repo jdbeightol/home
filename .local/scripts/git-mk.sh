@@ -3,7 +3,8 @@
 repo=${1:?missing repo name}
 readonly repo
 
-if [[ -z "$(git rev-parse HEAD)" ]]; then
+if ! git rev-parse HEAD &>/dev/null; then
+    1>&2 echo 'error: not an established git repository'
     exit 1
 fi
 
