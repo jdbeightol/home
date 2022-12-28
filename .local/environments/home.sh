@@ -11,9 +11,9 @@ else
     command -v fortune &>/dev/null && { echo; fortune && echo; }
 fi
 
+export GITADDR="ssh://git.service.saturn.consul:2222"
 export GOPATH="$HOME/.local/go"
 export WORKSPACE_DIR="${HOME}/Workspace"
 
 export NOMAD_ADDR="http://mimas.saturn.sol:4646"
 export CONSUL_HTTP_ADDR="http://mimas.saturn.sol:8500"
-
