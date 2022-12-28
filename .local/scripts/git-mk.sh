@@ -13,5 +13,5 @@ if [[ -n "$(git remote get-url origin 2>/dev/null)" ]]; then
     exit 2
 fi
 
-git remote add origin "${GITADDR:?GITADDR not set}/${repo}"
+git remote add origin "${GIT_ADDR:?GIT_ADDR not set}/${repo}"
 git push -u origin master
