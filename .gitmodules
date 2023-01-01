@@ -27,3 +27,6 @@
 [submodule ".vim/pack/plugins/start/vim-jsonnet"]
 	path = .vim/pack/plugins/start/vim-jsonnet
 	url = https://github.com/google/vim-jsonnet.git
+[submodule ".vim/pack/plugins/start/vim-hcl"]
+	path = .vim/pack/plugins/start/vim-hcl
+	url = https://github.com/jvirtanen/vim-hcl.git
