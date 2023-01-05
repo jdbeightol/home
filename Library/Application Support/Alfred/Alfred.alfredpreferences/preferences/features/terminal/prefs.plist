@@ -5,10 +5,8 @@
 	<key>application</key>
 	<integer>1</integer>
 	<key>custom</key>
-	<string>on kitty(cmd)	set katpath to "/private/tmp"	tell application "System Events" to set katname to name of first file of folder katpath whose name begins with "mykitty"	set katsock to katpath &amp; "/" &amp; katname	do shell script "/opt/homebrew/bin/kitty @ --to unix:" &amp; katsock &amp; " " &amp; cmdend kittyon kittylaunch(cmd)	set bashcmd to "bash -c \"" &amp; cmd &amp; "\""	set kittycmd to "launch --type=os-window --hold"	kitty(kittycmd &amp; " " &amp; bashcmd)end kittylaunchon alfred_script(q)
-	tell application "kitty" to activate
-	kittylaunch(q)
-end alfred_script</string>
+	<string>on alfred_script(q)
+	set kittycmd to "/opt/homebrew/bin/kitty --hold"	set bashcmd to "bash -c \"" &amp; q &amp; "\""	do shell script kittycmd &amp; " " &amp; bashcmdend alfred_script</string>
 	<key>prefix</key>
 	<integer>6</integer>
 </dict>
