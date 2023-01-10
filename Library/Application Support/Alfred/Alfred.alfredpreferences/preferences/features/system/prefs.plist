@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ejectKeywordEnabled</key>
+	<true/>
+	<key>ejectType</key>
+	<integer>0</integer>
+	<key>emptytrashKeyword</key>
+	<string>trashempty</string>
+	<key>forcequitKeyword</key>
+	<string>:q!</string>
+	<key>hideKeyword</key>
+	<string>:h</string>
+	<key>lockKeywordEnabled</key>
+	<false/>
+	<key>quitKeyword</key>
+	<string>:q</string>
+	<key>quitallKeyword</key>
+	<string>:qa</string>
+	<key>restartKeyword</key>
+	<string>reboot</string>
+	<key>screensaverKeywordEnabled</key>
+	<false/>
+	<key>sleepKeywordEnabled</key>
+	<false/>
+	<key>sleepdisplaysKeywordEnabled</key>
+	<false/>
+	<key>volumedownKeywordEnabled</key>
+	<false/>
+	<key>volumemuteKeywordEnabled</key>
+	<false/>
+	<key>volumeupKeywordEnabled</key>
+	<false/>
+</dict>
+</plist>
