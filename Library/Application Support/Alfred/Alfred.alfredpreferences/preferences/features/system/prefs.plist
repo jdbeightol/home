@@ -6,8 +6,6 @@
 	<true/>
 	<key>ejectType</key>
 	<integer>0</integer>
-	<key>emptytrashKeyword</key>
-	<string>trashempty</string>
 	<key>forcequitKeyword</key>
 	<string>:q!</string>
 	<key>hideKeyword</key>
