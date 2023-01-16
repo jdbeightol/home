@@ -25,12 +25,12 @@ TYPE=$(yabai -m query --spaces --space | jq --raw-output .type)
 
 case "${TYPE}" in
     bsp)
+        yabai -m space --layout stack
+    ;;
+    stack)
         WIN_IDS=($(yabai -m query --windows --space | jq '.[].id'))
         yabai -m space --layout float
         window_spread "${WIN_IDS}"
-    ;;
-    float)
-        yabai -m space --layout stack
     ;;
     *)
         yabai -m space --layout bsp
