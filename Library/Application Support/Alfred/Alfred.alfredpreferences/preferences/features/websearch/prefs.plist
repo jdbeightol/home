@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>2FDF5D15-E4AE-4727-86F8-827FE5537A69</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>jira</string>
+			<key>text</key>
+			<string>Open '{query}' in Jira</string>
+			<key>url</key>
+			<string>https://jira.internal.digitalocean.com/browse/{query}</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

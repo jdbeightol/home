@@ -65,11 +65,11 @@
 	<key>createdby</key>
 	<string>Caleb Evans</string>
 	<key>description</key>
-	<string>Open the conference URL for upcoming calendar events</string>
+	<string>Open the URL for upcoming meetings</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Open Conference URL</string>
+	<string>Open Meeting</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -129,9 +129,9 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Open the conference URL of your next calendar event</string>
+				<string>Open the URL for your next meeting</string>
 				<key>title</key>
-				<string>Open Conference URL</string>
+				<string>Open Meetings</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
