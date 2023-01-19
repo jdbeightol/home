@@ -30,5 +30,3 @@
 [submodule ".vim/pack/plugins/start/vim-hcl"]
 	path = .vim/pack/plugins/start/vim-hcl
 	url = https://github.com/jvirtanen/vim-hcl.git
-[submodule "."]
-	url = ssh://git.service.saturn.consul:2222/secret.git
