@@ -19,7 +19,7 @@
 	branch = main
 [submodule ".local/share/secret"]
 	path = .local/share/secret
-	url = http://callisto.jupiter.sol:3000/jdbeightol/secret.git
+	url = ssh://git.service.saturn.consul:2222/secret.git
 [submodule ".config/kitty/kitty-alternative-icon"]
 	path = .config/kitty/kitty-alternative-icon
 	url = https://github.com/hristost/kitty-alternative-icon.git
@@ -30,3 +30,5 @@
 [submodule ".vim/pack/plugins/start/vim-hcl"]
 	path = .vim/pack/plugins/start/vim-hcl
 	url = https://github.com/jvirtanen/vim-hcl.git
+[submodule "."]
+	url = ssh://git.service.saturn.consul:2222/secret.git
