@@ -8,9 +8,10 @@ import yaml
 
 from nanoleafapi import Nanoleaf
 
+home = os.path.expanduser('~')
 parser = argparse.ArgumentParser(description='nanoleaf effect changer')
 parser.add_argument('effect', nargs='?', help='name of the effect to use')
-parser.add_argument('--config', '-c', default='/Users/jbeightol/.nanoleaf.yml', help='configuration file location')
+parser.add_argument('--config', '-c', default=os.path.join(home, '.nanoleaf.yml'), help='configuration file location')
 args = parser.parse_args()
 
 
