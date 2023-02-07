@@ -20,7 +20,8 @@ module.exports = {
     },
     {
       match: [
-        "youtube.com*"
+        "youtube.com*",
+        "*.youtube.com*"
       ],
       browser: "Firefox"
     }
