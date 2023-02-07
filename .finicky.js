@@ -22,7 +22,7 @@ module.exports = {
       match: [
         "youtube.com*"
       ],
-      browser: "Safari"
+      browser: "Firefox"
     }
   ]
 }
