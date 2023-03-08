@@ -90,3 +90,4 @@ let g:airline_theme = 'minimalist'
 let g:jsonnet_fmt_on_save = 0
 
 autocmd FileType hcl setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType nix setlocal tabstop=2 shiftwidth=2 softtabstop=2
