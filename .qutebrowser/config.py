@@ -68,8 +68,9 @@ c.scrolling.smooth = True
 
 # change how downloads display and are automatically removed
 c.downloads.position = "bottom"
-c.downloads.remove_finished = 5000
+c.downloads.location.prompt = False
 c.downloads.location.suggestion = "both"
+c.downloads.remove_finished = 30000
 
 # use all letters for hints and increase size
 c.hints.chars = "asdfghjklqwertyuiopzxcvbnm"
@@ -95,4 +96,3 @@ config.load_autoconfig()
 
 # apply the theme after loading autoconfig
 config.source('theme.py')
-
