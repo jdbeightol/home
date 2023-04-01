@@ -55,7 +55,7 @@ function env::extends() {
 }
 
 function env::prompt() {
-    if [ -n "${ENV_PS1_LITERAL}" ] then
+    if [ -n "${ENV_PS1_LITERAL}" ]; then
         echo "${ENV_PS1_LITERAL}"
         return
     fi
