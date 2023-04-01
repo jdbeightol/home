@@ -5,7 +5,7 @@ if [ "$(date +%m%d)" == "0401" ]; then
     clear
     echo 'Microsoft Windows XP [Version 5.1.2600]'
     echo 'Copyright (c) 1985-2001 Microsoft Corp.'
-    PS1='C:\\\\\W\>'
+    env::prompt::set_literal 'C:\\\W>'
 else
     # Display a fortune if installed.
     command -v fortune &>/dev/null && { echo; fortune && echo; }

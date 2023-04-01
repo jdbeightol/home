@@ -55,6 +55,10 @@ function env::extends() {
 }
 
 function env::prompt() {
+    if [ -n "${ENV_PS1_LITERAL}" ] then
+        echo "${ENV_PS1_LITERAL}"
+        return
+    fi
     local ps1="${ENV_PS1}"
     for opt in "${ENV_PS1_OPTIONS[@]}"; do
         ps1="$(echo "$ps1" | eval $opt)"
@@ -65,6 +69,11 @@ function env::prompt() {
 function env::prompt::set() {
     export PS1="$@"
 }
+
+function env::prompt::set_literal() {
+    ENV_PS1_LITERAL="$@"
+}
+
 
 function env::prompt::add_option() {
     ENV_PS1_OPTIONS+=("$1")
