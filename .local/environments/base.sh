@@ -4,7 +4,6 @@ export PATH="$PATH:$HOME/.local/bin"
 export EDITOR="vi"
 export ANSIBLE_NOCOWS=1
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-export DOCKER_BUILDKIT=1
 
 # Set common aliases
 alias df='df -h'
