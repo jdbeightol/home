@@ -5,12 +5,6 @@ MILLIS_IN_SECOND: 1000
 
 countdowns: [
     {
-        label: "Valentine's Day",
-        time: "February 14, 2023 12:00 AM"
-    }, {
-        label: "Tax Day",
-        time: "April 15, 2023 12:00 AM"
-    }, {
         label: "Nicole's Day",
         time: "July 18, 2023 12:00 AM"
     }, {
