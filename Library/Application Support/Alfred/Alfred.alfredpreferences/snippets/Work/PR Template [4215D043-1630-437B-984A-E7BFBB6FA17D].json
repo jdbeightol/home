@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "[Orca2 Production Tactical\nDashboard](https:\/\/grafana.internal.digitalocean.com\/d\/hrEgZUwMz\/orca-orca-regional-tactical-dashboard)\n\n[Querymon Production Tactical Dashboard](https:\/\/grafana.internal.digitalocean.com\/d\/XRxakiunk\/orca-querymon-tactical-dashboard?orgId=1&refresh=1m)\n\n[Pollmon2 Production Health and Monitoring Dashboard](https:\/\/grafana.internal.digitalocean.com\/d\/VhDAQCY7k\/eng-delivery-docc-applications?orgId=1&var-prometheus=prod-pandora-puff&var-cluster=puff&var-namespace=orca&var-application=pollmon2)\n\n[Orca2, Pollmon2, Querymon, Corvina, Orca2 Janitor, Seal, and Octopus2 Deployment and Rollback\nInstructions](https:\/\/github.internal.digitalocean.com\/pages\/digitalocean\/orca-team-docs\/on-call\/resolve.html#deployments)",
+    "uid" : "4215D043-1630-437B-984A-E7BFBB6FA17D",
+    "name" : "PR Template",
+    "keyword" : ""
+  }
+}
