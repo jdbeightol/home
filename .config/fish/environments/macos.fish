@@ -21,4 +21,4 @@ fish_add_path -a ~/.local/cargo/bin
 
 set -x JAVA_HOME (/usr/libexec/java_home)
 
-brew shellenv | source
+/opt/homebrew/bin/brew shellenv | source

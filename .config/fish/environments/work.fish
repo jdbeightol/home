@@ -30,10 +30,10 @@ function dote-clean-stage2
 end
 
 function dote-clean-production
-    dote-clean-production='dote list on production | cut -d \  -f 1 | tail -n +2 | xargs -I {} dote destroy {} on production
+    dote list on production | cut -d \  -f 1 | tail -n +2 | xargs -I {} dote destroy {} on production
 end
 
 set -x GOPRIVATE '*.internal.digitalocean.com,github.com/digitalocean'
-set -x VAULT_ADDR https://vault-api.internal.digitalocean.com:8200
+set -x VAULT_ADDR 'https://vault-api.internal.digitalocean.com:8200'
 set -x MTLS_CLIENT_KEY_FILE_PATH $HOME/.local/ssl/jbeightol.staff.digitalocean.com.key
-set -x MTLS_CLIENT_CERT_FILE_PATH= $HOME/.local/ssl/jbeightol.staff.digitalocean.com.crt
+set -x MTLS_CLIENT_CERT_FILE_PATH $HOME/.local/ssl/jbeightol.staff.digitalocean.com.crt
