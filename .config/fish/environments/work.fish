@@ -37,7 +37,7 @@ function prompt_login
     echo -n -s (set_color $fish_color_user) "$USER" (set_color normal) @ (set_color $color_host) Triton (set_color normal)
 end
 
-set -x GOPRIVATE '*.internal.digitalocean.com,github.com/digitalocean'
-set -x VAULT_ADDR 'https://vault-api.internal.digitalocean.com:8200'
-set -x MTLS_CLIENT_KEY_FILE_PATH $HOME/.local/ssl/jbeightol.staff.digitalocean.com.key
-set -x MTLS_CLIENT_CERT_FILE_PATH $HOME/.local/ssl/jbeightol.staff.digitalocean.com.crt
+set -gx GOPRIVATE '*.internal.digitalocean.com,github.com/digitalocean'
+set -gx VAULT_ADDR 'https://vault-api.internal.digitalocean.com:8200'
+set -gx MTLS_CLIENT_KEY_FILE_PATH $HOME/.local/ssl/jbeightol.staff.digitalocean.com.key
+set -gx MTLS_CLIENT_CERT_FILE_PATH $HOME/.local/ssl/jbeightol.staff.digitalocean.com.crt
