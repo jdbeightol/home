@@ -29,7 +29,7 @@ function dote-clean-production
     dote list on production | cut -d \  -f 1 | tail -n +2 | xargs -I {} dote destroy {} on production
 end
 
-set -gx GOPRIVATE '*.internal.digitalocean.com,github.com/digitalocean'
+set -gx GOPRIVATE \*.internal.digitalocean.com,github.com/digitalocean
 set -gx VAULT_ADDR 'https://vault-api.internal.digitalocean.com:8200'
 set -gx MTLS_CLIENT_KEY_FILE_PATH $HOME/.local/ssl/jbeightol.staff.digitalocean.com.key
 set -gx MTLS_CLIENT_CERT_FILE_PATH $HOME/.local/ssl/jbeightol.staff.digitalocean.com.crt
