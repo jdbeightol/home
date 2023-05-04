@@ -1,5 +1,5 @@
 env::require linux
 
-function hop {
+function hop
     ssh mikatu@callisto.jupiter.sol $argv
-}
+end
