@@ -1,8 +1,9 @@
-set -x GOPATH $HOME/.local/go
-set -x WORKSPACE_DIR $HOME/Workspace
-
-set -x GIT_ADDR ssh://git.service.saturn.consul:2222
-set -x NOMAD_ADDR http://mimas.saturn.sol:4646
-set -x CONSUL_HTTP_ADDR http://mimas.saturn.sol:8500
-
-set -x VAULT_ADDR http://vault.uranus.sol/
+set -gx WORKSPACE_DIR $HOME/Workspace
+set -gx GOPATH $HOME/.local/go
+set -gx ANSIBLE_CONFIG $WORKSPACE_DIR/ansible/ansible.cfg
+set -gx ANSIBLE_INVENTORY $WORKSPACE_DIR/ansible/home
+set -gx ANSIBLE_VAULT_PASSWORD_FILE $HOME/.local/scripts/ansible-password-file.sh
+set -gx GIT_ADDR ssh://git.service.saturn.consul:2222
+set -gx CONSUL_HTTP_ADDR http://mimas.saturn.sol:8500
+set -gx NOMAD_ADDR http://mimas.saturn.sol:4646
+set -gx VAULT_ADDR http://vault.uranus.sol/
