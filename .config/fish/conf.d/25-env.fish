@@ -18,4 +18,4 @@ if not set -q __fish_environment || not env::require $__fish_environment
     end
 end
 
-set fish_greeting "Configuration hierarchy: config" "> "{$__fish_profile_stack}
+set fish_greeting "$(set_color -oi white)Configuration hierarchy: $(set_color -oi cyan)config" "$(set_color -oi brown)> $(set_color -oi cyan)"{$__fish_profile_stack}(set_color normal)
