@@ -1,9 +1,5 @@
 # fish configuration specific to macOS
 
-function lsblk
-    diskutil list
-end
-
 function dnsflush
     sudo killall -HUP mDNSResponder
 end
@@ -21,3 +17,5 @@ fish_add_path -a ~/.local/cargo/bin
 
 /opt/homebrew/bin/brew shellenv | source
 zoxide init fish | source
+
+abbr -a lsblk diskutil list
