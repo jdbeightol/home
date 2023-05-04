@@ -17,10 +17,6 @@ function todo
     jira list -n epics-inprogress -t listissueonly | xargs -I{} jira epic ls {} -t list
 end
 
-function pb
-    pinboard $argv
-end
-
 function j
     jira $argv
 end
@@ -31,10 +27,6 @@ end
 
 function dote-clean-production
     dote list on production | cut -d \  -f 1 | tail -n +2 | xargs -I {} dote destroy {} on production
-end
-
-function prompt_login
-    echo -n -s (set_color $fish_color_user) "$USER" (set_color normal) @ (set_color $color_host) Triton (set_color normal)
 end
 
 set -gx GOPRIVATE '*.internal.digitalocean.com,github.com/digitalocean'

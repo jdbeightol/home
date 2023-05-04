@@ -12,6 +12,10 @@ function du
     du -d 1 -c -h -x $argv
 end
 
+function pb
+    pinboard $argv
+end
+
 fish_add_path -gp /usr/local/sbin
 fish_add_path -ga ~/.local/cargo/bin
 
