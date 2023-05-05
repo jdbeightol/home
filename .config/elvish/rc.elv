@@ -1,4 +1,4 @@
 fn ll {|@a| e:ls -l --color $@a }
+fn la {|@a| e:ls -al --color $@a }
 
-/opt/homebrew/bin/brew shellenv
 eval (starship init elvish)
