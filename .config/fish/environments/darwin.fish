@@ -21,5 +21,6 @@ fish_add_path -ga ~/.local/cargo/bin
 
 /opt/homebrew/bin/brew shellenv | source
 zoxide init fish | source
+starship init fish | source
 
 abbr -a lsblk diskutil list
