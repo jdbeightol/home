@@ -33,3 +33,5 @@ set -gx GOPRIVATE \*.internal.digitalocean.com,github.com/digitalocean
 set -gx VAULT_ADDR 'https://vault-api.internal.digitalocean.com:8200'
 set -gx MTLS_CLIENT_KEY_FILE_PATH $HOME/.local/ssl/jbeightol.staff.digitalocean.com.key
 set -gx MTLS_CLIENT_CERT_FILE_PATH $HOME/.local/ssl/jbeightol.staff.digitalocean.com.crt
+
+fish_add_path -ga $HOME/.local/cargo/bin

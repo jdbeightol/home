@@ -17,7 +17,6 @@ function pb
 end
 
 fish_add_path -gp /usr/local/sbin
-fish_add_path -ga ~/.local/cargo/bin
 
 /opt/homebrew/bin/brew shellenv | source
 zoxide init fish | source
