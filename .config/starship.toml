@@ -1,26 +1,41 @@
 format = """
-$username\
+$time\
 $hostname\
 $directory\
 $git_branch\
 $git_state\
 $git_status\
-$cmd_duration\
 $line_break\
-$python\
+$username\
 $character"""
 
+right_format = """$cmd_duration"""
+add_newline = false
+
+[time]
+disabled = false
+format = "[\\[$time\\]](bold red) "
+
+[username]
+show_always = true
+format = "[$user](blue)"
+
+[hostname]
+ssh_only = false
+format = '[$ssh_symbol$hostname:](bold black)'
+
 [directory]
-style = "blue"
+truncation_length = 0
+format = '[$path]($style)[$read_only]($read_only_style)'
+style = "bold black"
 
 [character]
-success_symbol = "[❯](purple)"
-error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
+success_symbol = "[->](bold green)"
+error_symbol = "[->](bold red)"
 
 [git_branch]
-format = "[$branch]($style)"
-style = "bright-black"
+format = "[@$branch]($style)"
+style = "bold black"
 
 [git_status]
 format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"

@@ -32,3 +32,5 @@ set fish_greeting "$(set_color -oi white)Configuration hierarchy: $(set_color -o
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
+
+enable_transience
