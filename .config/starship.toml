@@ -3,6 +3,7 @@ $time\
 $hostname\
 $directory\
 $git_branch\
+$git_commit\
 $git_state\
 $git_status\
 $line_break\
@@ -26,6 +27,7 @@ format = '[$ssh_symbol$hostname:](bold black)'
 
 [directory]
 truncation_length = 0
+truncation_symbol = '  '
 format = '[$path]($style)[$read_only]($read_only_style)'
 style = "bold black"
 
@@ -34,8 +36,11 @@ success_symbol = "[->](bold green)"
 error_symbol = "[->](bold red)"
 
 [git_branch]
-format = "[@$branch]($style)"
-style = "bold black"
+format = " [$symbol$branch]($style)"
+symbol = " "
+
+[git_commit]
+format = ' [\($hash$tag\)]($style) '
 
 [git_status]
 format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
