@@ -15,7 +15,7 @@ add_newline = false
 
 [time]
 disabled = false
-format = "[\\[$time\\]](bold red) "
+format = "[\\[$time\\]](bold purple) "
 
 [username]
 show_always = true
@@ -32,8 +32,8 @@ format = '[$path]($style)[$read_only]($read_only_style)'
 style = "bold black"
 
 [character]
-success_symbol = "[->](bold green)"
-error_symbol = "[->](bold red)"
+success_symbol = "[ ❯](bold green)"
+error_symbol = "[ ❯](bold red)"
 
 [git_branch]
 format = " [$symbol$branch]($style)"
@@ -56,10 +56,6 @@ stashed = "≡"
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bright-black"
-
-[cmd_duration]
-format = "[$duration]($style) "
-style = "yellow"
 
 [python]
 format = "[$virtualenv]($style) "
