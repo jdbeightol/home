@@ -15,7 +15,7 @@ add_newline = false
 
 [time]
 disabled = false
-format = "[\\[$time\\]](bold purple) "
+format = "[\\[$time\\]](bold red) "
 
 [username]
 show_always = true
