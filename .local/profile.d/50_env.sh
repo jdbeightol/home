@@ -99,6 +99,9 @@ function env::load() {
     env::echo -e "${ENV_RESET}"
     env::echo::flush
     env::prompt::set "$(env::prompt)"
+    if command -v starship &>/dev/null; then
+        eval "$(starship init bash)"
+    fi
 }
 
 function env::main() {
