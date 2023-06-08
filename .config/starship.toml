@@ -27,7 +27,7 @@ format = '[$ssh_symbol$hostname:](bold black)'
 
 [directory]
 truncation_length = 1
-trunacate_to_repo = false
+truncate_to_repo = false
 fish_style_pwd_dir_length = 1
 format = '[$path]($style)[$read_only]($read_only_style)'
 style = "bold black"
