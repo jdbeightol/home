@@ -3,24 +3,37 @@
 #
 # usage: youtube-download
 #
-# Depends on the QUTE_URL environment variable.
+# Depends on the QUTE_URL environment variable and utilizes QUTE_FIFO if set.
 #
 
+function msg() {
+    local cmd="${1:?missing message level}"
+    shift
+    local msg="$*"
+    if [ -z "$QUTE_FIFO" ] ; then
+        echo "$cmd: $msg" >&2
+    else
+        echo "message-$cmd '${msg//\'/\\\'}'" >> "$QUTE_FIFO"
+    fi
+}
+
 if [[ -z "${QUTE_URL}" ]]; then
-    1>&2 echo 'QUTE_URL unset'
+    msg error 'QUTE_URL not set'
     exit 1
 fi
 
 if ! command -v nomad &>/dev/null; then
-    1>&2 echo 'nomad executable not on PATH'
+    msg error 'nomad executable not on PATH'
     exit 127
 fi
 
 if ! grep youtube.com <<< "${QUTE_URL}" &>/dev/null; then
-    1>&2 echo 'not a youtube url'
+    msg error "${QUTE_URL} not a youtube url"
     exit 2
 fi
 
 set -e
 
 1>&2 nomad job dispatch -meta url="${QUTE_URL}" youtube-dl
+
+msg info "added ${QUTE_URL} to download queue"
