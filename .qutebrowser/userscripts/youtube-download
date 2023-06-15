@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+#
+# usage: youtube-download
+#
+# Depends on the QUTE_URL environment variable.
+#
+
+if [[ -z "${QUTE_URL}" ]]; then
+    1>&2 echo 'QUTE_URL unset'
+    exit 1
+fi
+
+if ! command -v nomad &>/dev/null; then
+    1>&2 echo 'nomad executable not on PATH'
+    exit 127
+fi
+
+if ! grep youtube.com <<< "${QUTE_URL}" &>/dev/null; then
+    1>&2 echo 'not a youtube url'
+    exit 2
+fi
+
+set -e
+
+1>&2 nomad job dispatch -meta url="${QUTE_URL}" youtube-dl
