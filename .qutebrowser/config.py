@@ -30,7 +30,8 @@ custom_commands = {
     "j": "scroll-px 0 200",
     "k": "scroll-px 0 -200",
     "l": "scroll-px 200 0",
-    "<%s+c>" % ctrl_mod: "yank --quiet selection"
+    "<%s+c>" % ctrl_mod: "yank --quiet selection",
+    "gy": "spawn --userscript youtube-download"
   }
 }
 
