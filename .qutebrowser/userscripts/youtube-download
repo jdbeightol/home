@@ -1,39 +1,39 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 
-#
-# usage: youtube-download
-#
-# Depends on the QUTE_URL environment variable and utilizes QUTE_FIFO if set.
-#
+import json
+import os
+import re
+import requests
+import sys
 
-function msg() {
-    local cmd="${1:?missing message level}"
-    shift
-    local msg="$*"
-    if [ -z "$QUTE_FIFO" ] ; then
-        echo "$cmd: $msg" >&2
-    else
-        echo "message-$cmd '${msg//\'/\\\'}'" >> "$QUTE_FIFO"
-    fi
+def qute_command(command):
+    with open(os.environ['QUTE_FIFO'], 'w') as fifo:
+        fifo.write(command + '\n')
+        fifo.flush()
+
+def message(level, message):
+    qute_command(f'message-{level} "{message}"')
+
+job_id = "youtube-dl"
+valid_url = re.compile('.*youtube\.com.*')
+
+download_url = os.environ["QUTE_URL"]
+nomad_address = os.environ["NOMAD_ADDR"]
+
+if not valid_url.match(download_url):
+    message("error", f"{download_url} is not a youtube url")
+    sys.exit(2)
+
+dispatch_url = f"{nomad_address}/v1/job/{job_id}/dispatch"
+
+payload = {
+    "Meta": {
+        "url": download_url,
+    }
 }
 
-if [[ -z "${QUTE_URL}" ]]; then
-    msg error 'QUTE_URL not set'
-    exit 1
-fi
+r = requests.post(dispatch_url, data=json.dumps(payload))
 
-if ! command -v nomad &>/dev/null; then
-    msg error 'nomad executable not on PATH'
-    exit 127
-fi
+print(r.json())
 
-if ! grep youtube.com <<< "${QUTE_URL}" &>/dev/null; then
-    msg error "${QUTE_URL} not a youtube url"
-    exit 2
-fi
-
-set -e
-
-1>&2 nomad job dispatch -meta url="${QUTE_URL}" youtube-dl
-
-msg info "added ${QUTE_URL} to download queue"
+message("info", f"added {download_url} to download queue")
