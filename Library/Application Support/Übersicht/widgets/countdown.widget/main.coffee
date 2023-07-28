@@ -5,20 +5,17 @@ MILLIS_IN_SECOND: 1000
 
 countdowns: [
     {
-        label: "Nicole's Day",
-        time: "July 18, 2023 12:00 AM"
-    }, {
-        label: "Anniversary",
+        label: "Anniversary — Cotton",
         time: "Aug 28, 2023 12:00 AM"
     }, {
         label: "Christmas",
         time: "Dec 25, 2023 12:00 AM"
     }, {
-        label: "My Day",
-        time: "Jan 13, 2024 12:00 AM"
-    }, {
         label: "Valentine's Day",
         time: "Feb 14, 2024 12:00 AM"
+    }, {
+        label: "Wife Day",
+        time: "July 18, 2024 12:00 AM"
     }
 ]
 
