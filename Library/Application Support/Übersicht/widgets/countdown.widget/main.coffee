@@ -5,9 +5,6 @@ MILLIS_IN_SECOND: 1000
 
 countdowns: [
     {
-        label: "Anniversary — Cotton",
-        time: "Aug 28, 2023 12:00 AM"
-    }, {
         label: "Christmas",
         time: "Dec 25, 2023 12:00 AM"
     }, {
@@ -16,6 +13,9 @@ countdowns: [
     }, {
         label: "Wife Day",
         time: "July 18, 2024 12:00 AM"
+    }, {
+        label: "Anniversary — Leather",
+        time: "Aug 28, 2024 12:00 AM"
     }
 ]
 
