@@ -8,10 +8,6 @@ function yoink
     open -a Yoink $argv
 end
 
-function du
-    du -d 1 -c -h -x $argv
-end
-
 function pb
     pinboard $argv
 end
