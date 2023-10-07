@@ -6,10 +6,7 @@ import argparse
 import random
 
 
-parser = argparse.ArgumentParser(
-                    prog='ProgramName',
-                    description='What the program does',
-                    epilog='Text at the bottom of help')
+parser = argparse.ArgumentParser(description='random meal picker')
 parser.add_argument('count', type=int, help='count of meals to pick')
 parser.add_argument('tags', nargs='*', help='optional tags to require')
 args = parser.parse_args()
