@@ -1,54 +1,111 @@
 [
   {
     "name": "chilli",
-    "tags": ["cold-day", "crockpot"]
+    "tags": [
+      "cold-day",
+      "crockpot"
+    ]
   },
   {
     "name": "chicken fajita soup",
-    "tags": ["cold-day"]
+    "tags": [
+      "cold-day"
+    ]
   },
   {
     "name": "chicken pasta primavera"
   },
   {
     "name": "beef stew",
-    "tags": ["crockpot"]
+    "tags": [
+      "crockpot"
+    ]
   },
   {
     "name": "beef and peppers"
   },
   {
     "name": "chicken corn soup",
-    "tags": ["cold-day"]
+    "tags": [
+      "cold-day"
+    ]
   },
   {
     "name": "lemon garlic salmon"
   },
   {
     "name": "penne with meat sauce",
-    "tags": ["kids"]
+    "tags": [
+      "kids"
+    ]
   },
   {
     "name": "italian sausage",
-    "tags": ["kids"]
+    "tags": [
+      "kids"
+    ]
   },
   {
     "name": "eggs and sausage",
-    "tags": ["kids"]
+    "tags": [
+      "kids"
+    ]
   },
   {
     "name": "cheese steak stuffed peppers"
   },
   {
     "name": "hot dogs",
-    "tags": ["kids", "fast"]
+    "tags": [
+      "kids",
+      "fast"
+    ]
   },
   {
     "name": "chicken nuggets",
-    "tags": ["kids", "fast"]
+    "tags": [
+      "kids",
+      "fast"
+    ]
   },
   {
     "name": "fish stick",
-    "tags": ["kids", "fast"]
+    "tags": [
+      "kids",
+      "fast"
+    ]
+  },
+  {
+    "name": "meatloaf"
+  },
+  {
+    "name": "vegetable soup"
+  },
+  {
+    "name": "grilled cheese"
+  },
+  {
+    "name": "lunch meat sandwiches"
+  },
+  {
+    "name": "pizza sandwiches"
+  },
+  {
+    "name": "pizza"
+  },
+  {
+    "name": "apple salad"
+  },
+  {
+    "name": "egg and cheese muffin"
+  },
+  {
+    "name": "steak"
+  },
+  {
+    "name": "surf and turf"
+  },
+  {
+    "name": "shepherds pie"
   }
 ]

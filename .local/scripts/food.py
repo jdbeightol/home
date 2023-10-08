@@ -8,17 +8,26 @@ import random
 
 parser = argparse.ArgumentParser(description='random meal picker')
 parser.add_argument('count', type=int, help='count of meals to pick')
-parser.add_argument('tags', nargs='*', help='optional tags to require')
+parser.add_argument('tags', nargs='*', help='optional tags to require; negate a tag by prefixing it with !')
 args = parser.parse_args()
 
 food_file = os.path.join(os.environ["HOME"], ".food.json")
 
+food = []
 with open(food_file, "r") as f:
     food = json.load(f)
 
 if len(args.tags) > 0:
     for tag in args.tags:
-        food = [f for f in food if 'tags' in f and tag in f['tags']]
+        food = [
+            f
+            for f in food
+            if 'tags' not in f or tag[1:] not in f['tags']
+        ] if tag.startswith('!') else [
+            f
+            for f in food
+            if 'tags' in f and tag in f['tags']
+        ]
 
 pos_set = []
 for i in range(args.count):
