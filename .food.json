@@ -7,7 +7,7 @@
     ]
   },
   {
-    "name": "chicken fajita soup",
+    "name": "chicken tortilla soup",
     "tags": [
       "cold-day"
     ]
@@ -79,16 +79,30 @@
     "name": "meatloaf"
   },
   {
-    "name": "vegetable soup"
+    "name": "vegetable soup",
+    "tags": [
+        "cold-day"
+    ]
   },
   {
-    "name": "grilled cheese"
+    "name": "grilled cheese",
+    "tags": [
+        "lunch"
+    ]
   },
   {
-    "name": "lunch meat sandwiches"
+    "name": "lunch meat sandwiches",
+    "tags": [
+        "lunch",
+        "fast"
+    ]
   },
   {
-    "name": "pizza sandwiches"
+    "name": "pizza sandwiches",
+    "tags": [
+        "lunch",
+        "fast"
+    ]
   },
   {
     "name": "pizza"
@@ -97,15 +111,27 @@
     "name": "apple salad"
   },
   {
-    "name": "egg and cheese muffin"
+    "name": "egg and cheese muffin",
+    "tags": [
+        "breakfast"
+    ]
   },
   {
     "name": "steak"
   },
   {
-    "name": "surf and turf"
+    "name": "surf and turf",
+    "tags": [
+        "date-night"
+    ]
   },
   {
-    "name": "shepherds pie"
+    "name": "shepherds pie",
+    "tags": [
+        "cold-day"
+    ]
+  },
+  {
+    "name": "chicken alfredo"
   }
 ]
