@@ -57,6 +57,7 @@
 - name: egg and cheese muffin
   tags:
     - breakfast
+    - fast
 - name: steak
 - name: surf and turf
   tags:
@@ -66,3 +67,7 @@
     - cold-day
     - hard
 - name: chicken alfredo
+- name: chicken stuffing casserole
+  tags:
+    - cold-day
+- name: cheese burger macaroni soup
