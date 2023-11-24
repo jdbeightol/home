@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-import json
+#import json
+import yaml
 import os
 import argparse
 import random
@@ -11,11 +12,15 @@ parser.add_argument('count', type=int, help='count of meals to pick')
 parser.add_argument('tags', nargs='*', help='optional tags to require; negate a tag by prefixing it with !')
 args = parser.parse_args()
 
-food_file = os.path.join(os.environ["HOME"], ".food.json")
+food_file = os.path.join(os.environ["HOME"], ".food.yaml")
+if not os.path.exists(food_file):
+    food_file = os.path.join(os.environ["HOME"], ".food.yml")
+if not os.path.exists(food_file):
+    food_file = os.path.join(os.environ["HOME"], ".food.json")
 
 food = []
 with open(food_file, "r") as f:
-    food = json.load(f)
+    food = yaml.safe_load(f)
 
 if len(args.tags) > 0:
     for tag in args.tags:
