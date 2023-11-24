@@ -1,139 +1,68 @@
-[
-  {
-    "name": "chilli",
-    "tags": [
-      "cold-day",
-      "crockpot"
-    ]
-  },
-  {
-    "name": "chicken tortilla soup",
-    "tags": [
-      "cold-day"
-    ]
-  },
-  {
-    "name": "chicken pasta primavera"
-  },
-  {
-    "name": "beef stew",
-    "tags": [
-      "crockpot"
-    ]
-  },
-  {
-    "name": "beef and peppers"
-  },
-  {
-    "name": "chicken corn soup",
-    "tags": [
-      "cold-day"
-    ]
-  },
-  {
-    "name": "lemon garlic salmon"
-  },
-  {
-    "name": "penne with meat sauce",
-    "tags": [
-      "kids"
-    ]
-  },
-  {
-    "name": "italian sausage",
-    "tags": [
-      "kids"
-    ]
-  },
-  {
-    "name": "eggs and sausage",
-    "tags": [
-      "kids"
-    ]
-  },
-  {
-    "name": "cheese steak stuffed peppers"
-  },
-  {
-    "name": "hot dogs",
-    "tags": [
-      "kids",
-      "fast"
-    ]
-  },
-  {
-    "name": "chicken nuggets",
-    "tags": [
-      "kids",
-      "fast"
-    ]
-  },
-  {
-    "name": "fish sticks",
-    "tags": [
-      "kids",
-      "fast"
-    ]
-  },
-  {
-    "name": "meatloaf"
-  },
-  {
-    "name": "vegetable soup",
-    "tags": [
-        "cold-day",
-        "hard"
-    ]
-  },
-  {
-    "name": "grilled cheese",
-    "tags": [
-        "lunch"
-    ]
-  },
-  {
-    "name": "lunch meat sandwiches",
-    "tags": [
-        "lunch",
-        "fast"
-    ]
-  },
-  {
-    "name": "pizza sandwiches",
-    "tags": [
-        "lunch",
-        "fast"
-    ]
-  },
-  {
-    "name": "pizza"
-  },
-  {
-    "name": "apple salad"
-  },
-  {
-    "name": "egg and cheese muffin",
-    "tags": [
-        "breakfast"
-    ]
-  },
-  {
-    "name": "steak"
-  },
-  {
-    "name": "surf and turf",
-    "tags": [
-        "date-night"
-    ]
-  },
-  {
-    "name": "shepherds pie",
-    "tags": [
-        "cold-day",
-        "hard"
-    ]
-  },
-  {
-    "name": "chicken alfredo"
-  }
-]
+- name: chilli
+  tags:
+    - cold-day
+    - crockpot
+- name: chicken tortilla soup
+  tags:
+    - cold-day
+- name: chicken pasta primavera
+- name: beef stew
+  tags:
+    - crockpot
+- name: beef and peppers
+- name: chicken corn soup
+  tags:
+    - cold-day
+- name: lemon garlic salmon
+- name: penne with meat sauce
+  tags:
+    - kids
+- name: italian sausage
+  tags:
+    - kids
+- name: eggs and sausage
+  tags:
+    - kids
+- name: cheese steak stuffed peppers
+- name: hot dogs
+  tags:
+    - kids
+    - fast
+- name: chicken nuggets
+  tags:
+    - kids
+    - fast
+- name: fish sticks
+  tags:
+    - kids
+    - fast
+- name: meatloaf
+- name: vegetable soup
+  tags:
+    - cold-day
+    - hard
+- name: grilled cheese
+  tags:
+    - lunch
+- name: lunch meat sandwiches
+  tags:
+    - lunch
+    - fast
+- name: pizza sandwiches
+  tags:
+    - lunch
+    - fast
+- name: pizza
+- name: apple salad
+- name: egg and cheese muffin
+  tags:
+    - breakfast
+- name: steak
+- name: surf and turf
+  tags:
+    - date-night
+- name: shepherds pie
+  tags:
+    - cold-day
+    - hard
+- name: chicken alfredo
