@@ -4,6 +4,8 @@
     - crockpot
 - name: chicken tortilla soup
   tags:
+    - forbidden
+    - crockpot
     - cold-day
 - name: chicken pasta primavera
 - name: beef stew
@@ -54,6 +56,8 @@
     - fast
 - name: pizza
 - name: apple salad
+  tags:
+    - forbidden
 - name: egg and cheese muffin
   tags:
     - breakfast
@@ -67,7 +71,7 @@
     - cold-day
     - hard
 - name: chicken alfredo
-- name: chicken stuffing casserole
+- name: chicken stuffing bake
   tags:
     - cold-day
-- name: cheese burger macaroni soup
+- name: cheeseburger soup
