@@ -140,6 +140,7 @@ fn + shift - c : yabai -m window --close
 
 # rotate and mirror desktop
 fn - 0x24 : yabai -m space --rotate 180
+fn - r : yabai -m space --rotate 180
 
 # window sizing keys
 fn - h : yabai -m window --resize top_left:-200:-200;\
