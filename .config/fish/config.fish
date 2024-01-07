@@ -21,7 +21,15 @@ env::require base
 # environment exists for the machine's hostname and load that.  If that doesn't
 # exist, try to load an environment for the operating system.
 if not set -q __fish_environment || not env::require $__fish_environment
-    if not env::require (hostname -s | string lower)
+    set -f shell_hostname (echo $hostname)
+    if command -v hostname &>/dev/null
+        echo yay
+        set -f shell_hostname (hostname -s)
+    else if command -v hostnamectl &>/dev/null
+        set -f shell_hostname (hostnamectl hostname)
+    end
+    echo $shell_hostname
+    if not env::require (echo $shell_hostname | string lower)
         env::require (uname | string lower)
     end
 end
