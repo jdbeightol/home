@@ -1,3 +1,4 @@
+---
 - name: chilli
   tags:
     - cold-day
@@ -74,3 +75,10 @@
 - name: chicken stuffing bake
   tags:
     - cold-day
+- name: sausage and potato soup
+  tags:
+    - kids
+    - cold-day
+- name: freezer meats
+  tags:
+    - fast
