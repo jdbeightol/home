@@ -3,18 +3,16 @@ function doevans
 end
 
 function mine
-    jira list -n mine
+    jira issue list --plain -a $USER@digitalocean.com -s open -s in\ progress -s todo
 end
 
 function todo
-    echo mine; line
+    echo my issues; line
     mine
-    echo; echo backlog; line
-    jira list -l 10 -n todo
-    echo; echo epics; line
-    jira list -l 10 -n epics
-    echo; echo in-progress epic stories; line
-    jira list -n epics-inprogress -t listissueonly | xargs -I{} jira epic ls {} -t list
+    echo; echo top of backlog; line
+    jira issue list --plain --paginate 10 -s open
+    echo; echo open epics; line
+    jira epic list --table --plain -s open -s in\ progress
 end
 
 function j

@@ -65,11 +65,11 @@
 	<key>createdby</key>
 	<string>Caleb Evans</string>
 	<key>description</key>
-	<string>Open the URL for upcoming meetings</string>
+	<string>Open the conference URL for upcoming calendar events</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Open Meeting</string>
+	<string>Open Conference URL</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -123,15 +123,15 @@
 				<key>runningsubtext</key>
 				<string>Loading...</string>
 				<key>script</key>
-				<string>/usr/bin/python3 -m ocu.list_events "$@"</string>
+				<string>/usr/bin/python3 -m ocu.list_events "$@" || xcode-select --install</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Open the URL for your next meeting</string>
+				<string>Open the conference URL of your next calendar event</string>
 				<key>title</key>
-				<string>Open Meetings</string>
+				<string>Open Conference URL</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -222,37 +222,37 @@ The workflow also accounts for timezones and Daylight Saving Time (DST). All tim
 		<key>09CA121B-D8B4-4ABF-AB14-039EE9CA5965</key>
 		<dict>
 			<key>xpos</key>
-			<real>895</real>
+			<real>600</real>
 			<key>ypos</key>
-			<real>395</real>
+			<real>170</real>
 		</dict>
 		<key>63611A99-79C1-437F-9440-06BD78E1A17F</key>
 		<dict>
 			<key>xpos</key>
-			<real>735</real>
+			<real>440</real>
 			<key>ypos</key>
-			<real>395</real>
+			<real>170</real>
 		</dict>
 		<key>AD06006F-71F6-4731-9942-D0697E95329A</key>
 		<dict>
 			<key>xpos</key>
-			<real>390</real>
+			<real>95</real>
 			<key>ypos</key>
-			<real>330</real>
+			<real>105</real>
 		</dict>
 		<key>CAD3A45C-8496-4F9C-9FD8-78677008FBA5</key>
 		<dict>
 			<key>xpos</key>
-			<real>560</real>
+			<real>265</real>
 			<key>ypos</key>
-			<real>350</real>
+			<real>125</real>
 		</dict>
 		<key>F69A44DF-57DE-4713-BACA-8EDFBFE14FF6</key>
 		<dict>
 			<key>xpos</key>
-			<real>735</real>
+			<real>440</real>
 			<key>ypos</key>
-			<real>265</real>
+			<real>40</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
@@ -261,20 +261,30 @@ The workflow also accounts for timezones and Daylight Saving Time (DST). All tim
 			<key>config</key>
 			<dict>
 				<key>default</key>
-				<string>*.zoom.us, zoom.us, meet.google.com, hangouts.google.com, teams.microsoft.com, gotomeeting.com, *.gotomeeting.com, webex.com, *.webex.com, uberconference.com</string>
-				<key>placeholder</key>
-				<string>e.g. zoom.us,meet.google.com,teams.microsoft.com</string>
+				<string>*.zoom.us
+zoom.us
+meet.google.com
+hangouts.google.com
+teams.microsoft.com
+app.slack.com
+gotomeeting.com
+*.gotomeeting.com
+webex.com
+*.webex.com
+uberconference.com</string>
 				<key>required</key>
 				<true/>
 				<key>trim</key>
 				<true/>
+				<key>verticalsize</key>
+				<integer>9</integer>
 			</dict>
 			<key>description</key>
-			<string>Comma-separated list of domain names representing which URLs to check within each calendar event</string>
+			<string>List of domain names patterns representing which URLs to check within each calendar event. Wildcards are supported. One domain per line.</string>
 			<key>label</key>
 			<string>Conference Domains</string>
 			<key>type</key>
-			<string>textfield</string>
+			<string>textarea</string>
 			<key>variable</key>
 			<string>conference_domains</string>
 		</dict>
@@ -283,19 +293,19 @@ The workflow also accounts for timezones and Daylight Saving Time (DST). All tim
 			<dict>
 				<key>default</key>
 				<string></string>
-				<key>placeholder</key>
-				<string>e.g. General, Work, School</string>
 				<key>required</key>
 				<false/>
 				<key>trim</key>
 				<true/>
+				<key>verticalsize</key>
+				<integer>3</integer>
 			</dict>
 			<key>description</key>
-			<string>Comma-separated list of calendar names for which to fetch events. If this field is blank, all calendars will be implied.</string>
+			<string>List of calendar names for which to fetch events. If this field is blank, all calendars will be implied. One calendar name per line.</string>
 			<key>label</key>
 			<string>Calendars</string>
 			<key>type</key>
-			<string>textfield</string>
+			<string>textarea</string>
 			<key>variable</key>
 			<string>calendar_names</string>
 		</dict>
@@ -358,9 +368,54 @@ The workflow also accounts for timezones and Daylight Saving Time (DST). All tim
 			<key>variable</key>
 			<string>use_direct_msteams</string>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<false/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string>Use icalBuddy for sourcing event data</string>
+			</dict>
+			<key>description</key>
+			<string>Whether or not to use icalBuddy for sourcing event data; if you have calendars with a large number of events, use icalBuddy can drastically improve performance; you must have icalBuddy installed via Homebrew for this functionality to take effect</string>
+			<key>label</key>
+			<string>Use icalBuddy</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>use_icalbuddy</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>12-hour</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>12-Hour</string>
+						<string>12-hour</string>
+					</array>
+					<array>
+						<string>24-Hour</string>
+						<string>24-hour</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string>Whether to use 12-hour or 24-hour time for the displayed event times</string>
+			<key>label</key>
+			<string>Time System</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>time_system</string>
+		</dict>
 	</array>
 	<key>version</key>
-	<string>6.0.0</string>
+	<string>7.1.4</string>
 	<key>webaddress</key>
 	<string>calebevans.me</string>
 </dict>
