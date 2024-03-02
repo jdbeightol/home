@@ -82,3 +82,6 @@
 - name: freezer meats
   tags:
     - fast
+- name: hamburger helper
+  tags:
+    - kids
