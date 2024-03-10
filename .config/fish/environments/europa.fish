@@ -1,4 +1,4 @@
 env::require darwin
 env::require home
 
-set -g -x JAVA_HOME /opt/homebrew/Cellar/openjdk@17/17.0.9
+set -g -x JAVA_HOME /opt/homebrew/opt/openjdk@17
