@@ -85,3 +85,29 @@
 - name: hamburger helper
   tags:
     - kids
+- name: cheesy beef tostadas
+  tags:
+    - hello-fresh
+    - mex-american
+- name: crispy parmesan chicken
+  tags:
+    - hello-fresh
+    - hard
+- name: carne asada steak bowls
+  tags:
+    - hello-fresh
+    - mex-american
+- name: tuscan beef-stuffed peppers
+  tags:
+    - hello-fresh
+    - mex-american
+- name: chicken sausage cavatappi bolognese
+  tags:
+    - hello-fresh
+- name: pork sausage and roasted bell pepper pasta
+  tags:
+    - hello-fresh
+- name: Southwest Chicken Sausage and Rice Skillet
+  tags:
+    - hello-fresh
+    - mex-american
