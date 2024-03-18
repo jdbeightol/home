@@ -5,17 +5,23 @@ MILLIS_IN_SECOND: 1000
 
 countdowns: [
     {
-        label: "Christmas",
-        time: "Dec 25, 2023 12:00 AM"
+        label: "Total Solar Eclipse",
+        time: "April 8, 2024 3:00 PM"
     }, {
-        label: "Valentine's Day",
-        time: "Feb 14, 2024 12:00 AM"
+        label: "Tax Day",
+        time: "April 15, 2024 12:00 AM"
     }, {
-        label: "Wife Day",
+        label: "妻の誕生日",
         time: "July 18, 2024 12:00 AM"
     }, {
         label: "Anniversary — Leather",
         time: "Aug 28, 2024 12:00 AM"
+    }, {
+        label: "Christmas",
+        time: "Dec 25, 2024 12:00 AM"
+    }, {
+        label: "Valentine's Day",
+        time: "Feb 14, 2025 12:00 AM"
     }
 ]
 
