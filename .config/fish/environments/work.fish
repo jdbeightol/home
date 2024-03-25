@@ -33,3 +33,6 @@ set -gx MTLS_CLIENT_KEY_FILE_PATH $HOME/.local/ssl/jbeightol.staff.digitalocean.
 set -gx MTLS_CLIENT_CERT_FILE_PATH $HOME/.local/ssl/jbeightol.staff.digitalocean.com.crt
 
 fish_add_path -ga $HOME/.cargo/bin
+
+alias python python3.11
+alias python3 python3.11
