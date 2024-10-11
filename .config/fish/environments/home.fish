@@ -6,4 +6,5 @@ set -gx ANSIBLE_VAULT_PASSWORD_FILE $HOME/.local/scripts/ansible-password-file.s
 set -gx GIT_ADDR ssh://git.service.saturn.consul:2222
 set -gx CONSUL_HTTP_ADDR http://mimas.saturn.sol:8500
 set -gx NOMAD_ADDR http://mimas.saturn.sol:4646
+set -gx NOMAD_REGION sol
 set -gx VAULT_ADDR http://vault.service.saturn.consul:8200/

@@ -111,3 +111,20 @@
   tags:
     - hello-fresh
     - mex-american
+- name: Macaroni and Cheese
+  tags:
+    - kids
+    - instant-pot
+    - meal-prep
+- name: Kalua Pork
+  tags:
+    - instant-pot
+    - meal-prep
+- name: Colorado Burritos
+  tags:
+    - instant-pot
+    - meal-prep
+- name: Salsa Chicken
+  tags:
+    - instant-pot
+    - meal-prep
