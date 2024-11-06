@@ -21,8 +21,6 @@ fish_add_path -gpP /usr/local/sbin
 # for the homebrew paths, we can guarantee that our system continues to operate
 # the same as before whatevere change occurred.
 command -v /opt/homebrew/bin/brew &> /dev/null && /opt/homebrew/bin/brew shellenv | source
-fish_add_path -gp "/opt/homebrew/bin" "/opt/homebrew/sbin"
-
 command -v zoxide &> /dev/null && zoxide init fish | source
 command -v starship &> /dev/null && starship init fish | source
 command -v pyenv &> /dev/null && pyenv init - | source
