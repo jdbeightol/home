@@ -130,10 +130,13 @@ fn + shift - space : yabai -m space --balance
 
 # rotate through algorithms
 fn - space : /usr/local/bin/yabai-toggle
+f15 : /usr/local/bin/yabai-toggle
 
 # float / unfloat window and center on screen
 fn - t : yabai -m window --toggle float;\
          yabai -m window --grid 16:4:1:1:2:14
+f14 : yabai -m window --toggle float;\
+      yabai -m window --grid 16:4:1:1:2:14
 
 # close focused window
 fn + shift - c : yabai -m window --close
@@ -141,6 +144,7 @@ fn + shift - c : yabai -m window --close
 # rotate and mirror desktop
 fn - 0x24 : yabai -m space --rotate 180
 fn - r : yabai -m space --mirror y-axis
+f16 : yabai -m space --mirror y-axis
 
 # window sizing keys
 fn - h : yabai -m window --resize top_left:-200:-200;\
