@@ -5,9 +5,6 @@ MILLIS_IN_SECOND: 1000
 
 countdowns: [
     {
-        label: "Christmas",
-        time: "Dec 25, 2024 12:00 AM"
-    }, {
         label: "Valentine's Day",
         time: "Feb 14, 2025 12:00 AM"
     }, {
@@ -19,6 +16,9 @@ countdowns: [
     }, {
         label: "Anniversary — Fruit and Flowers",
         time: "Aug 28, 2025 12:00 AM"
+    }, {
+        label: "Christmas",
+        time: "Dec 25, 2025 12:00 AM"
     }
 ]
 
