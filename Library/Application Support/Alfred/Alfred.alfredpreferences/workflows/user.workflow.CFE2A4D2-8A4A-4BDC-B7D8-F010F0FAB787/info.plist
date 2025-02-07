@@ -46,27 +46,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>leaf-power</string>
-				<key>subtext</key>
-				<string>Toggle Nanoleaf Light Panel Power</string>
-				<key>text</key>
-				<string>Toggle Nanoleaf Power</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>84AC502E-F6EA-4457-84EE-B6F9F0285A58</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -86,6 +65,27 @@
 			<string>044FB778-A506-410F-A125-5F8A64694159</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>leaf-power</string>
+				<key>subtext</key>
+				<string>Toggle Nanoleaf Light Panel Power</string>
+				<key>text</key>
+				<string>Toggle Nanoleaf Power</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>84AC502E-F6EA-4457-84EE-B6F9F0285A58</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -167,7 +167,7 @@
 		<key>044FB778-A506-410F-A125-5F8A64694159</key>
 		<dict>
 			<key>xpos</key>
-			<real>265</real>
+			<real>300</real>
 			<key>ypos</key>
 			<real>150</real>
 		</dict>
@@ -181,7 +181,7 @@
 		<key>530EEB3F-E954-4AF7-BE12-B7C44D156260</key>
 		<dict>
 			<key>xpos</key>
-			<real>265</real>
+			<real>295</real>
 			<key>ypos</key>
 			<real>275</real>
 		</dict>
