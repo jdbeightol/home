@@ -15,5 +15,7 @@
 	<true/>
 	<key>limit</key>
 	<integer>4</integer>
+	<key>snippetKeywordEnabled</key>
+	<false/>
 </dict>
 </plist>

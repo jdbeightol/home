@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string></string>
+	<string>dog.enki.nanoleaf</string>
 	<key>connections</key>
 	<dict>
 		<key>4F841012-93E2-460F-AAFD-4F8CC6C4A8E4</key>
