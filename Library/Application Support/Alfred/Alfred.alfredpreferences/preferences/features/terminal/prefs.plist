@@ -6,7 +6,7 @@
 	<integer>1</integer>
 	<key>custom</key>
 	<string>on alfred_script(q)
-	set kittycmd to "/opt/homebrew/bin/kitty --hold"	set bashcmd to "bash -c \"" &amp; q &amp; "\""	do shell script kittycmd &amp; " " &amp; bashcmdend alfred_script</string>
+	set kittycmd to "/Applications/kitty.app/Contents/MacOS/kitty --hold"	set bashcmd to "bash -c \"" &amp; q &amp; "\""	do shell script kittycmd &amp; " " &amp; bashcmdend alfred_script</string>
 	<key>prefix</key>
 	<integer>6</integer>
 </dict>
