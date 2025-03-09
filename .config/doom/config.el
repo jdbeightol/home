@@ -92,3 +92,10 @@
 
 ;; treat underscores as part of a word --especially when moving forward or back a word at a time7
 (modify-syntax-entry ?_ "w")
+
+
+;; set deft notes directory
+(setq deft-directory "~/.notes")
+
+;; allow deft to search subdirectories
+(setq deft-recursive t)
