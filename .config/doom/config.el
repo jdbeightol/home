@@ -93,9 +93,11 @@
 ;; treat underscores as part of a word --especially when moving forward or back a word at a time7
 (modify-syntax-entry ?_ "w")
 
+;; set the default org directory
+(setq org-directory "~/.notes")
 
 ;; set deft notes directory
-(setq deft-directory "~/.notes")
+(setq deft-directory 'org-directory)
 
 ;; allow deft to search subdirectories
 (setq deft-recursive t)
