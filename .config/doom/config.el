@@ -40,8 +40,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/.notes/")
-
+(setq org-directory "~/dropbox/notes/")
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -90,8 +89,10 @@
 ;;         (setq interprogram-paste-function 'copy-from-osx)
 ;; )
 
-;; treat underscores as part of a word --especially when moving forward or back a word at a time7
+;; treat underscores as part of a word --especially when moving forward or back
+;; a word at a time. This matches the behavior of vim and is especially useful
+;; in languages like python.
 (modify-syntax-entry ?_ "w")
 
 ;; set the default org roam directory
-(setq org-roam-directory "~/.notes")
+(setq org-roam-directory "~/dropbox/notes/")
