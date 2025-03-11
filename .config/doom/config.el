@@ -96,8 +96,4 @@
 ;; set the default org directory
 (setq org-directory "~/.notes")
 
-;; set deft notes directory
-(setq deft-directory 'org-directory)
-
-;; allow deft to search subdirectories
-(setq deft-recursive t)
+(setq org-roam-directory "~/.note")
