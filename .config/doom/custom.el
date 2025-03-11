@@ -7,9 +7,7 @@
  '(org-agenda-files
    '("/Users/mikatu/.notes/mu4e.org" "/Users/mikatu/.notes/test.org"
      "/Users/mikatu/.notes/todo.org"))
- '(package-selected-packages '(hcl-mode))
- '(tab-always-indent nil)
- '(xterm-mouse-mode t))
+ '(package-selected-packages '(hcl-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
