@@ -97,4 +97,4 @@
 (setq org-directory "~/.notes")
 
 ;; set the default org roam directory
-(setq org-roam-directory "~/.note")
+(setq org-roam-directory "~/.notes")
