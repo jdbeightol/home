@@ -96,3 +96,6 @@
 
 ;; set the default org roam directory
 (setq org-roam-directory "~/dropbox/notes/")
+
+;; remove smart parens
+(remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
