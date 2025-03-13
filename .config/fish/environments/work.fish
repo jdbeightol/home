@@ -11,6 +11,7 @@ function dote-clean-production
 end
 
 set -gx GOPRIVATE \*.internal.digitalocean.com,github.com/digitalocean
+set -gx GOPATH $HOME/.go
 set -gx CTHULHU_DIR $HOME/Workspace/cthulhu/
 set -gx VAULT_ADDR 'https://vault-api.internal.digitalocean.com:8200'
 set -gx MTLS_CLIENT_KEY_FILE_PATH $HOME/.local/ssl/jbeightol.staff.digitalocean.com.key

@@ -74,25 +74,16 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; use macOS clipboard for copy and paste
-;; (when (eq system-type 'darwin)
-;;         (defun copy-from-osx ()
-;;         (shell-command-to-string "pbpaste"))
-;;
-;;         (defun paste-to-osx (text &optional push)
-;;         (let ((process-connection-type nil))
-;;         (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
-;;         (process-send-string proc text)
-;;         (process-send-eof proc))))
-;;
-;;         (setq interprogram-cut-function 'paste-to-osx)
-;;         (setq interprogram-paste-function 'copy-from-osx)
-;; )
-
 ;; treat underscores as part of a word --especially when moving forward or back
 ;; a word at a time. This matches the behavior of vim and is especially useful
 ;; in languages like python.
 (modify-syntax-entry ?_ "w")
+
+;; Let's redefine the home and end keys to go to the beginning and end of lines
+;; instead of the document. I always use gg and G to navigate through a document
+;; anyway.
+(global-set-key (kbd "<home>") 'beginning-of-line)
+(global-set-key (kbd "<end>") 'end-of-line)
 
 ;; set the default org roam directory
 (setq org-roam-directory "~/dropbox/notes/")
