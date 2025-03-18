@@ -8,9 +8,7 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 # Set common aliases
 alias df='df -h'
 alias du='du --max-depth=1 -c -h -x' 
-alias curlj='curl -H "Content-type: application/json"'
 alias grep='grep --color=auto -n'
-alias letters='sed "s/\(.\)./\1/g" <<< '
 alias emacs='emacs -nw'
 
 alias icat="kitty +kitten icat"

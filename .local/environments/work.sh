@@ -10,24 +10,7 @@ export WORKSPACE_DIR="${CTHULHU_DIR}"
 
 export PATH="${PATH}:${HOME}/.cargo/bin"
 
-alias pb='pinboard'
-alias doevans='evans -r --tls --cert "${MTLS_CLIENT_CERT_FILE_PATH}" --certkey "${MTLS_CLIENT_KEY_FILE_PATH}"'
-alias orca2='orca2-prod'
-alias orca2-prod='doevans --servername orca2.internal.digitalocean.com'
-alias orca2-stage2='doevans --servername orca2-stage2.internal.digitalocean.com'
-alias mine='jira list -n mine'
-alias todo='
-echo mine; line
-mine
-echo; echo backlog; line
-jira list -l 10 -n todo
-echo; echo epics; line;
-jira list -l 10 -n epics
-echo; echo in-progress epic stories; line;
-jira list -n epics-inprogress -t listissueonly | xargs -I{} jira epic ls {} -t list
-'
 alias j='jira'
-alias flipperctl='docker run --rm docker.internal.digitalocean.com/compute/flipperctl'
 
 alias dote-clean-stage2='dote list on stage2 | cut -d \  -f 1 | tail -n +2 | xargs -I {} dote destroy {} on stage2'
 alias dote-clean-production='dote list on production | cut -d \  -f 1 | tail -n +2 | xargs -I {} dote destroy {} on production'
