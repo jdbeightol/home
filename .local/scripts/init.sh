@@ -14,7 +14,7 @@ GIT_DIR="${HOME}/.cfg"
 
 # check for required packages, a failure will cause the script to exit when running sh with -e
 echo "checking for required packages..."
-command -v git 1>&2 2>/dev/null
+command -v git
 
 echo "cloning repository..."
 git clone --bare "${REPO}" "${GIT_DIR}"
