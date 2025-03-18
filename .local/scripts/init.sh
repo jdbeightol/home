@@ -4,7 +4,7 @@
 #
 # curl-bash snippet for easy copy & paste:
 #
-#   curl "https://github.com/jdbeightol/home/blob/master/.local/scripts/init.sh" | bash
+#   curl --silent "https://github.com/jdbeightol/home/blob/master/.local/scripts/init.sh" | bash
 #
 
 set -e
