@@ -1,32 +1,31 @@
-#!/bin/bash -e
+#!/usr/bin/env sh
+
+# home configuration initialization script
+#
+# curl-bash snippet for easy copy & paste:
+#
+#   curl "https://github.com/jdbeightol/home/blob/master/.local/scripts/init.sh" | bash
+#
+
+set -e
 
 REPO="https://github.com/jdbeightol/home.git"
 GIT_DIR="${HOME}/.cfg"
 
-# Check for required packages, failures will cause the script to exit when running bash with -e
-echo "Checking for required packages..."
-command -v git
+# check for required packages, a failure will cause the script to exit when running sh with -e
+echo "checking for required packages..."
+command -v git 1>&2 2>/dev/null
 
-echo "Cloning repository..."
-
+echo "cloning repository..."
 git clone --bare "${REPO}" "${GIT_DIR}"
 
-echo "Forcing checkout..."
-
+echo "forcing checkout..."
 git --git-dir "${GIT_DIR}" --work-tree "${HOME}" checkout -f
 
-echo "Hiding untracked files..."
-
+echo "hiding untracked files..."
 git --git-dir "${GIT_DIR}" --work-tree "${HOME}" config --local status.showUntrackedFiles no
 
-echo "Updating submodules..."
-
+echo "updating submodules..."
 git --git-dir "${GIT_DIR}" --work-tree "${HOME}" submodule update --init
 
-echo "Init complete!  Sourcing bashrc..."
-
-source "${HOME}/.bashrc"
-
-echo "Useful aliases for managing configuration:"
-
-alias .f
+echo "home initialization complete!"
