@@ -2,9 +2,9 @@
 
 # home configuration initialization script
 #
-# curl-bash snippet for easy copy & paste:
+# curl-sh snippet for easy copy & paste:
 #
-#   curl --silent "https://github.com/jdbeightol/home/blob/master/.local/scripts/init.sh" | bash
+#   curl --silent "https://raw.githubusercontent.com/jdbeightol/home/refs/heads/master/.local/scripts/init.sh" | sh
 #
 
 set -e
