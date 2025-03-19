@@ -95,7 +95,7 @@
 (setq
  gptel-model 'llama3.2
  gptel-backend (gptel-make-ollama "Ollama"
-                 :host "llama.service.saturn.consul:11434"
+                 :host "llama.service.saturn.consul:80"
                  :stream t
                  :models '(llama3.2 llama3.3:70b-instruct-q8_0 gemma3:27b)))
 
