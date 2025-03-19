@@ -90,3 +90,8 @@
 
 ;; remove smart parens
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
+
+(gptel-make-ollama "Ollama"                 ;Any name of your choosing
+  :host "llama.service.saturn.consul:11434" ;Where it's running
+  :stream t                                 ;Stream responses
+  :models '(llama3.2))                      ;List of models

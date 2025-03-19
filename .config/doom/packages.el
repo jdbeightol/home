@@ -51,3 +51,4 @@
 (package! hcl-mode)
 (package! tldr)
 (package! evil-tutor)
+(package! gptel)
