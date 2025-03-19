@@ -41,6 +41,9 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/dropbox/notes/")
+;;
+;; set the default org roam directory
+(setq org-roam-directory "~/dropbox/notes/")
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -85,13 +88,23 @@
 (global-set-key (kbd "<home>") 'beginning-of-line)
 (global-set-key (kbd "<end>") 'end-of-line)
 
-;; set the default org roam directory
-(setq org-roam-directory "~/dropbox/notes/")
-
 ;; remove smart parens
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
 
-(gptel-make-ollama "Ollama"                 ;Any name of your choosing
-  :host "llama.service.saturn.consul:11434" ;Where it's running
-  :stream t                                 ;Stream responses
-  :models '(llama3.2))                      ;List of models
+;; set up gptel configuration to use our local llama
+(setq
+ gptel-model 'llama3.2
+ gptel-backend (gptel-make-ollama "Ollama"
+                 :host "llama.service.saturn.consul:11434"
+                 :stream t
+                 :models '(llama3.2 llama3.3:70b-instruct-q8_0 gemma3:27b)))
+
+;; set some new keybindings to quickly access gptel features
+(map! :leader
+      (:prefix-map ("l" . "Llama")
+        (:desc "Open llama buffer" "b" #'gptel)
+        (:desc "Send to llama" "l" #'gptel-send)
+        (:desc "Open llama menu" "m" #'gptel-menu)
+        (:desc "Set org mode topic" "t" #'gptel-org-set-topic)
+        (:desc "Save org mode properties" "p" #'gptel-org-set-properties)
+      ))
