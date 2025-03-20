@@ -97,7 +97,7 @@
  gptel-backend (gptel-make-ollama "Ollama"
                  :host "llama.service.saturn.consul:80"
                  :stream t
-                 :models '(llama3.2 gemma3 phi4 mistral llava)
+                 :models '(llama3.2:3b gemma3:4b mistral llava:7b codellama:7b)
                  ))
 
 ;; set some new keybindings to quickly access gptel features
