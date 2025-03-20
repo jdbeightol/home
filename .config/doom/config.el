@@ -97,7 +97,8 @@
  gptel-backend (gptel-make-ollama "Ollama"
                  :host "llama.service.saturn.consul:80"
                  :stream t
-                 :models '(llama3.2 llama3.3:70b-instruct-q8_0 gemma3:27b)))
+                 :models '(llama3.2 gemma3 phi4 mistral llava)
+                 ))
 
 ;; set some new keybindings to quickly access gptel features
 (map! :leader
