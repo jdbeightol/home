@@ -121,6 +121,7 @@
       (:prefix-map ("l" . "Llama")
         (:desc "Open llama buffer" "b" #'gptel)
         (:desc "Send to llama" "l" #'gptel-send)
+        (:desc "Rewrite region with llama" "r" #'gptel-rewrite)
         (:desc "Open llama menu" "m" #'gptel-menu)
         (:desc "Set org mode topic" "t" #'gptel-org-set-topic)
         (:desc "Save org mode properties" "p" #'gptel-org-set-properties)
