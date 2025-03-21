@@ -91,13 +91,20 @@
 ;; remove smart parens
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
 
+;; @see https://bitbucket.org/lyro/evil/issue/511/let-certain-minor-modes-key-bindings
+(eval-after-load 'git-timemachine
+  '(progn
+     (evil-make-overriding-map git-timemachine-mode-map 'normal)
+     ;; force update evil keymaps after git-timemachine-mode loaded
+     (add-hook 'git-timemachine-mode-hook #'evil-normalize-keymaps)))
+
 ;; set up gptel configuration to use our local llama
 (setq
  gptel-model 'llama3.2:3b
  gptel-backend (gptel-make-ollama "Ollama"
                  :host "llama.service.saturn.consul:80"
                  :stream t
-                 :models '(llama3.2:3b gemma3:4b mistral llava:7b codellama:7b)
+                 :models '(llama3.2:3b gemma3:4b mistral:7b llava:7b codellama:7b)
                  ))
 
 ;; custom directives we can use for our LLMs; let's leave the default empty to we get the default beahviors out of the model
