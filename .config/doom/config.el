@@ -93,12 +93,21 @@
 
 ;; set up gptel configuration to use our local llama
 (setq
- gptel-model 'llama3.2
+ gptel-model 'llama3.2:3b
  gptel-backend (gptel-make-ollama "Ollama"
                  :host "llama.service.saturn.consul:80"
                  :stream t
                  :models '(llama3.2:3b gemma3:4b mistral llava:7b codellama:7b)
                  ))
+
+;; custom directives we can use for our LLMs; let's leave the default empty to we get the default beahviors out of the model
+(setq gptel-directives
+  '((default     . "")
+    (emacs       . "You are a large language model living in Emacs and a helpful assistant. Respond concisely.")
+    (programming . "You are a large language model and a careful programmer. Provide code and only code as output without any additional text, prompt or note.")
+    (writing     . "You are a large language model and a writing assistant. Respond concisely.")
+    (chat        . "You are a large language model and a conversation partner. Respond concisely.")
+    ))
 
 ;; set some new keybindings to quickly access gptel features
 (map! :leader
