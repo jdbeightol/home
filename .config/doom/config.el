@@ -119,10 +119,14 @@
 ;; set some new keybindings to quickly access gptel features
 (map! :leader
       (:prefix-map ("l" . "Llama")
+        (:desc "Abort" "A" #'gptel-abort)
+        (:desc "Add region or buffer to context" "a" #'gptel-add)
         (:desc "Open llama buffer" "b" #'gptel)
+        (:desc "Add file to context" "f" #'gptel-add-file)
         (:desc "Send to llama" "l" #'gptel-send)
-        (:desc "Rewrite region with llama" "r" #'gptel-rewrite)
         (:desc "Open llama menu" "m" #'gptel-menu)
-        (:desc "Set org mode topic" "t" #'gptel-org-set-topic)
         (:desc "Save org mode properties" "p" #'gptel-org-set-properties)
+        (:desc "Rewrite region with llama" "r" #'gptel-rewrite)
+        (:desc "Set system prompt" "s" #'gptel-system-prompt)
+        (:desc "Set org mode topic" "t" #'gptel-org-set-topic)
       ))
