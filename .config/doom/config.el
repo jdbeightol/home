@@ -104,7 +104,7 @@
  gptel-backend (gptel-make-ollama "Ollama"
                  :host "llama.service.saturn.consul:80"
                  :stream t
-                 :models '(llama3.2:3b gemma3:4b mistral:7b llava:7b codellama:7b)
+                 :models '(llama3.1:8b llama3.2:3b llama3.3:70b phi4:14b gemma3:4b gemma3:12b mistral:7b mistral-nemo:12b llava:7b codellama:7b codellama:13b llama3.2-vision:11b exaone-deep:7.8b deepseek-r1:7b deepseek-r1:8b deepseek-r1:14b qwq:32b qwen2.5:7b qwen2.5:14b qwen2.5-coder:7b qwen2.5-coder:14b starcoder2:7b starcoder2:15b openthinker:7b hermes3:8b)
                  ))
 
 ;; custom directives we can use for our LLMs; let's leave the default empty to we get the default beahviors out of the model
