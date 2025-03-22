@@ -138,6 +138,9 @@ fn - t : yabai -m window --toggle float;\
 f14 : yabai -m window --toggle float;\
       yabai -m window --grid 16:4:1:1:2:14
 
+f17 : emacsclient --create-frame
+f19 : emacsclient --eval "(emacs-everywhere)"
+
 # close focused window
 fn + shift - c : yabai -m window --close
 
