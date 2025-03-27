@@ -77,6 +77,9 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; set emacs to quit without asking
+(setq confirm-kill-emacs nil)
+
 ;; treat underscores as part of a word --especially when moving forward or back
 ;; a word at a time. This matches the behavior of vim and is especially useful
 ;; in languages like python.
