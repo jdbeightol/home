@@ -102,6 +102,35 @@
      (add-hook 'git-timemachine-mode-hook #'evil-normalize-keymaps)
      ))
 
+;; add all org, org-roam, and daily note files to the org-agenda by default.
+;; this has the risk of being slow, so we may need to reconsider this.
+(setq org-agenda-files
+      (list org-directory (concat org-directory "daily/")))
+
+;; configure custom org mode tags
+(setq org-tag-alist
+      '(
+        ("#home" . ?h)
+        ("#work" . ?w)
+        ("#project" . ?p)
+        ("#errand" . ?e)
+        ))
+
+;; configure custom agenda views
+(setq org-agenda-custom-commands
+      '(
+        ("n" "Weekly Agenda and Important Tasks"
+         ((agenda "" ((org-agenda-span 'week)
+                      (org-deadline-warning-days 7)))
+          (tags-todo "+PRIORITY=\"A\""
+                     ((org-agenda-overriding-header "High Priority Tasks")))))
+        ("h" "Home Tasks" ((tags-todo "+#home"
+                     ((org-agenda-overriding-header "Home Task List")))))
+        ("u" "Untagged Tasks" ((tags-todo "-{.*}"
+                     ((org-agenda-overriding-header "Untagged Tasks")))))
+        ("w" "Work Tasks" ((tags-todo "+#work"
+                     ((org-agenda-overriding-header "Work Task List")))))))
+
 ;; set up gptel configuration to use our local llama
 (setq
  gptel-model 'llama3.2:3b
@@ -134,26 +163,3 @@
         (:desc "Set system prompt" "s" #'gptel-system-prompt)
         (:desc "Set org mode topic" "t" #'gptel-org-set-topic)
         ))
-
-(setq org-tag-alist
-      '(
-        ("@home" . ?h)
-        ("@work" . ?w)
-        ("@project" . ?p)
-        ("@errand" . ?e)
-        ))
-
-(setq org-agenda-files
-      (list org-directory))
-
-(setq org-agenda-custom-commands
-      '(
-        ("n" "Weekly Agenda and Important Tasks"
-         ((agenda "" ((org-agenda-span 'week)
-                      (org-deadline-warning-days 7)))
-          (tags-todo "+PRIORITY=\"A\""
-                     ((org-agenda-overriding-header "High Priority Tasks")))))
-        ("h" "Home TODOs" ((tags-todo "+@home"
-                     ((org-agenda-overriding-header "Home Task List")))))
-        ("w" "Work TODOs" ((tags-todo "+@work"
-                     ((org-agenda-overriding-header "Work Task List")))))))
