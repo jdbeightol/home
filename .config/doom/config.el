@@ -110,10 +110,10 @@
 ;; configure custom org mode tags
 (setq org-tag-alist
       '(
-        ("#home" . ?h)
-        ("#work" . ?w)
-        ("#project" . ?p)
-        ("#errand" . ?e)
+        ("home" . ?h)
+        ("work" . ?w)
+        ("project" . ?p)
+        ("errand" . ?e)
         ))
 
 ;; configure custom agenda views
@@ -124,11 +124,11 @@
                       (org-deadline-warning-days 7)))
           (tags-todo "+PRIORITY=\"A\""
                      ((org-agenda-overriding-header "High Priority Tasks")))))
-        ("h" "Home Tasks" ((tags-todo "+#home"
+        ("h" "Home Tasks" ((tags-todo "+home"
                      ((org-agenda-overriding-header "Home Task List")))))
         ("u" "Untagged Tasks" ((tags-todo "-{.*}"
                      ((org-agenda-overriding-header "Untagged Tasks")))))
-        ("w" "Work Tasks" ((tags-todo "+#work"
+        ("w" "Work Tasks" ((tags-todo "+work"
                      ((org-agenda-overriding-header "Work Task List")))))))
 
 ;; set up gptel configuration to use our local llama
