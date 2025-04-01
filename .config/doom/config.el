@@ -107,6 +107,9 @@
 (setq org-agenda-files
       (list org-directory (concat org-directory "daily/")))
 
+;; set the format for the agenda
+(setq org-agenda-prefix-format '((agenda . " %i %?-12t% s") (todo . " %i") (tags . " %i") (search . " %i")))
+
 ;; configure custom org mode tags
 (setq org-tag-alist
       '(
