@@ -102,27 +102,46 @@
      (add-hook 'git-timemachine-mode-hook #'evil-normalize-keymaps)
      ))
 
+;; set the diary file
+(setq diary-file (concat org-directory "diary"))
+
 ;; add all org, org-roam, and daily note files to the org-agenda by default.
 ;; this has the risk of being slow, so we may need to reconsider this.
-(setq org-agenda-files
-      (list org-directory (concat org-directory "daily/")))
+(setq org-agenda-files (list org-directory (concat org-directory "daily/")))
+
+;; ensure our diary entries show up in our org-agenda
+;; we can regenerate the diary by manually downloading the ics file and running
+;; the icalendar-import-file function
+(setq org-agenda-include-diary t)
 
 ;; set the format for the agenda
-(setq org-agenda-prefix-format '((agenda . " %i %?-12t% s") (todo . " %i") (tags . " %i") (search . " %i")))
+(setq org-agenda-prefix-format '((agenda . " %i %?-12t% s")
+                                (todo . " %i")
+                                (tags . " %i")
+                                (search . " %i")
+                                ))
 
 ;; configure custom org mode tags
 (setq org-tag-alist
-      '(
-        ("home" . ?h)
+      '(("home" . ?h)
         ("work" . ?w)
         ("project" . ?p)
         ("errand" . ?e)
         ))
 
+;; configure custom org mode todos
+(after! org
+  (setq org-todo-keywords '((sequence "TODO(t)" "HOLD(h)" "|" "DONE(d)" "PUNT(p)" "JIRA(j)")))
+  (setq org-todo-keyword-faces '(("HOLD" . +org-todo-onhold)
+                               ("JIRA" . +org-todo-project)
+                               ("PUNT" . +org-todo-cancel)
+                               ))
+  )
+
+
 ;; configure custom agenda views
 (setq org-agenda-custom-commands
-      '(
-        ("n" "Weekly Agenda and Important Tasks"
+      '(("n" "Weekly Agenda and Important Tasks"
          ((agenda "" ((org-agenda-span 'week)
                       (org-deadline-warning-days 7)))
           (tags-todo "+PRIORITY=\"A\""
@@ -132,7 +151,8 @@
         ("u" "Untagged Tasks" ((tags-todo "-{.*}"
                      ((org-agenda-overriding-header "Untagged Tasks")))))
         ("w" "Work Tasks" ((tags-todo "+work"
-                     ((org-agenda-overriding-header "Work Task List")))))))
+                     ((org-agenda-overriding-header "Work Task List")))))
+        ))
 
 ;; set up gptel configuration to use our local llama
 (setq
