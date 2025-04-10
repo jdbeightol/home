@@ -107,7 +107,7 @@
 
 ;; add all org, org-roam, and daily note files to the org-agenda by default.
 ;; this has the risk of being slow, so we may need to reconsider this.
-(setq org-agenda-files (list org-directory (concat org-directory "daily/")))
+(setq org-agenda-files (list org-directory (concat org-directory "daily/") "~/dropbox/work/notes" "~/dropbox/work/notes/daily/"))
 
 ;; ensure our diary entries show up in our org-agenda
 ;; we can regenerate the diary by manually downloading the ics file and running
@@ -193,7 +193,8 @@
   (interactive)
   (let ((dir "~/.local/calendars/")
         (ext ".ics"))
-    (dolist (file (directory-files dir t))
-      (if (string-match ext file)
-          (progn
+    (progn
+      (delete-file diary-file)
+      (dolist (file (directory-files dir t))
+        (if (string-match ext file)
             (icalendar-import-file file diary-file))))))
