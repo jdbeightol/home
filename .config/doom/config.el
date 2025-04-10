@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'leuven)
+(setq doom-theme 'doom-one)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -43,7 +43,7 @@
 (setq org-directory "~/dropbox/notes/")
 ;;
 ;; set the default org roam directory
-(setq org-roam-directory "~/dropbox/notes/")
+(setq org-roam-directory org-directory)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -186,3 +186,14 @@
         (:desc "Set system prompt" "s" #'gptel-system-prompt)
         (:desc "Set org mode topic" "t" #'gptel-org-set-topic)
         ))
+
+;; create a function to synchronize calendars that were downloaded from elsewhere
+(defun icalendar-import-local-files ()
+  "Syncronize calendars as defined in the user's ~/.local/calendars/ directory"
+  (interactive)
+  (let ((dir "~/.local/calendars/")
+        (ext ".ics"))
+    (dolist (file (directory-files dir t))
+      (if (string-match ext file)
+          (progn
+            (icalendar-import-file file diary-file))))))
