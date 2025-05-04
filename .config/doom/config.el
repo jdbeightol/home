@@ -156,11 +156,11 @@
 
 ;; set up gptel configuration to use our local llama
 (setq
- gptel-model 'llama3.2:3b
+ gptel-model 'gemma3:27b
  gptel-backend (gptel-make-ollama "Ollama"
                  :host "llama.service.saturn.consul:80"
                  :stream t
-                 :models '(llama3.2:3b gemma3:4b mistral:7b codellama:7b exaone-deep:7.8b deepseek-r1:7b starcoder2:7b openthinker:7b hermes3:8b)
+                 :models '(llama3.2:3b codellama:13b gemma3:27b phi4:14b mistral-small3.1 deepseek-r1:32b deepcoder:14b starcoder2:15b exaone-deep:32b)
                  ))
 
 ;; custom directives we can use for our LLMs; let's leave the default empty to we get the default beahviors out of the model

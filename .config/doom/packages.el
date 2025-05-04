@@ -52,3 +52,4 @@
 (package! tldr)
 (package! evil-tutor)
 (package! gptel)
+(package! ledger-mode)
