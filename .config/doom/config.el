@@ -142,17 +142,15 @@
 
 ;; configure custom agenda views
 (setq org-agenda-custom-commands
-      '(("n" "Weekly Agenda and Important Tasks"
-         ((agenda "" ((org-agenda-span 'week)
-                      (org-deadline-warning-days 7)))
-          (tags-todo "+PRIORITY=\"A\""
-                     ((org-agenda-overriding-header "Important Tasks")))))
-        ("h" "Home Tasks" ((tags-todo "+home"
-                     ((org-agenda-overriding-header "Home Task List")))))
-        ("u" "Untagged Tasks" ((tags-todo "-{.*}"
-                     ((org-agenda-overriding-header "Untagged Tasks")))))
-        ("w" "Work Tasks" ((tags-todo "+work"
-                     ((org-agenda-overriding-header "Work Task List")))))
+      '(("i" "Weekly Agenda and Important Tasks"
+         ((agenda "" ((org-agenda-span 'week) (org-deadline-warning-days 7)))
+          (tags-todo "+PRIORITY=\"A\"" ((org-agenda-overriding-header "Important Tasks")))))
+        ("h" "Home Tasks" ((tags-todo "+home" ((org-agenda-overriding-header "Home Task List")))))
+        ("u" "Untagged Tasks" ((tags-todo "-{.*}" ((org-agenda-overriding-header "Untagged Tasks")))))
+        ("w" "Work Tasks" ((tags-todo "+work" ((org-agenda-overriding-header "Work Task List")))))
+        ("n" "Work TODO Today"
+         ((agenda "" ((org-agenda-span 'day) (org-deadline-warning-days 3)))
+          (tags-todo "+today" ((org-agenda-overriding-header "Today's TODO List")))))
         ))
 
 ;; configure the default capture template for org-roam dailies
