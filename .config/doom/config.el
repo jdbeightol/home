@@ -127,17 +127,18 @@
         ("work" . ?w)
         ("project" . ?p)
         ("errand" . ?e)
+        ("today" . ?t)
         ))
 
 ;; configure custom org mode todos
 (after! org
-  (setq org-todo-keywords '((sequence "TODO(t)" "HOLD(h)" "|" "DONE(d)" "PUNT(p)" "JIRA(j)")))
-  (setq org-todo-keyword-faces '(("HOLD" . +org-todo-onhold)
-                               ("JIRA" . +org-todo-project)
-                               ("PUNT" . +org-todo-cancel)
-                               ))
-  )
-
+  (setq
+   org-todo-keywords '((sequence "TODO(t)" "HOLD(h)" "|" "DONE(d)" "PUNT(p)" "JIRA(j)"))
+   org-todo-keyword-faces '(("HOLD" . +org-todo-onhold)
+                            ("JIRA" . +org-todo-project)
+                            ("PUNT" . +org-todo-cancel)
+                            )
+   ))
 
 ;; configure custom agenda views
 (setq org-agenda-custom-commands
@@ -145,7 +146,7 @@
          ((agenda "" ((org-agenda-span 'week)
                       (org-deadline-warning-days 7)))
           (tags-todo "+PRIORITY=\"A\""
-                     ((org-agenda-overriding-header "High Priority Tasks")))))
+                     ((org-agenda-overriding-header "Important Tasks")))))
         ("h" "Home Tasks" ((tags-todo "+home"
                      ((org-agenda-overriding-header "Home Task List")))))
         ("u" "Untagged Tasks" ((tags-todo "-{.*}"
@@ -154,23 +155,28 @@
                      ((org-agenda-overriding-header "Work Task List")))))
         ))
 
+;; configure the default capture template for org-roam dailies
+(setq org-roam-dailies-capture-templates
+      '(("d" "default" entry "* %<%I:%M %p>: %?"
+         :target (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n\n* Food\n")
+         )))
+
 ;; set up gptel configuration to use our local llama
 (setq
  gptel-model 'gemma3:27b
  gptel-backend (gptel-make-ollama "Ollama"
                  :host "llama.service.saturn.consul:80"
                  :stream t
-                 :models '(llama3.2:3b codellama:13b gemma3:27b phi4:14b mistral-small3.1 deepseek-r1:32b deepcoder:14b starcoder2:15b exaone-deep:32b)
-                 ))
-
-;; custom directives we can use for our LLMs; let's leave the default empty to we get the default beahviors out of the model
-(setq gptel-directives
-      '((default     . "")
-        (emacs       . "You are a large language model living in Emacs and a helpful assistant. Respond concisely.")
-        (programming . "You are a large language model and a careful programmer. Provide code and only code as output without any additional text, prompt or note.")
-        (writing     . "You are a large language model and a writing assistant. Respond concisely.")
-        (chat        . "You are a large language model and a conversation partner. Respond concisely.")
-        ))
+                 :models '(llama3.2:3b codellama:13b gemma3:27b phi4:14b mistral-small3.1 deepseek-r1:32b deepcoder:14b exaone-deep:32b)
+                 )
+gptel-directives '(
+                   (default     . "") ;; this isn't actually the default when loading the program, sadly
+                   (emacs       . "You are a large language model living in Emacs and a helpful assistant. Respond concisely.")
+                   (programming . "You are a large language model and a careful programmer. Provide code and only code as output without any additional text, prompt or note.")
+                   (writing     . "You are a large language model and a writing assistant. Respond concisely.")
+                   (chat        . "You are a large language model and a conversation partner. Respond concisely.")
+                   )
+)
 
 ;; set some new keybindings to quickly access gptel features
 (map! :leader
