@@ -161,7 +161,7 @@
 
 ;; set up gptel configuration to use our local llama
 (setq
- gptel-model 'gemma3:27b
+ gptel-model 'deepseek-r1:32b
  gptel-backend (gptel-make-ollama "Ollama"
                  :host "llama.service.saturn.consul:80"
                  :stream t
