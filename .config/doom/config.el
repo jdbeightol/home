@@ -156,7 +156,7 @@
 ;; configure the default capture template for org-roam dailies
 (setq org-roam-dailies-capture-templates
       '(("d" "default" entry "* %<%I:%M %p>: %?"
-         :target (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n\n* Food\n\n| Time | Food | Calories |\n|------+------+----------|\n|      |      |          |\n")
+         :target (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n\n* Food\n")
          )))
 
 ;; set up gptel configuration to use our local llama
@@ -173,7 +173,7 @@ gptel-directives '(
                    (programming . "You are a large language model and a careful programmer. Provide code and only code as output without any additional text, prompt or note.")
                    (writing     . "You are a large language model and a writing assistant. Respond concisely.")
                    (chat        . "You are a large language model and a conversation partner. Respond concisely.")
-                   (food        . "You are a calorie counter. Estimate calories for meals where they're not specified and output the final sum. Respond concisely.")
+                   (food        . "You are a calorie counter. Estimate calories for meals where they're not specified and output the final sum. Respond concisely with an org mode table.")
                    )
 )
 
