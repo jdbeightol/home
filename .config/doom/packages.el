@@ -51,5 +51,5 @@
 (package! hcl-mode)
 (package! tldr)
 (package! evil-tutor)
-(package! gptel)
+(package! gptel :recipe (:nonrecursive t))
 (package! ledger-mode)

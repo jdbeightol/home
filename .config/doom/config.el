@@ -160,22 +160,43 @@
          )))
 
 ;; set up gptel configuration to use our local llama
-(setq
- gptel-model 'deepseek-r1:32b
- gptel-backend (gptel-make-ollama "Ollama"
-                 :host "llama.service.saturn.consul:80"
-                 :stream t
-                 :models '(llama3.2:3b codellama:13b gemma3:27b phi4:14b mistral-small3.1 deepseek-r1:32b deepcoder:14b exaone-deep:32b)
-                 )
-gptel-directives '(
-                   (default     . "") ;; this isn't actually the default when loading the program, sadly
-                   (emacs       . "You are a large language model living in Emacs and a helpful assistant. Respond concisely.")
-                   (programming . "You are a large language model and a careful programmer. Provide code and only code as output without any additional text, prompt or note.")
-                   (writing     . "You are a large language model and a writing assistant. Respond concisely.")
-                   (chat        . "You are a large language model and a conversation partner. Respond concisely.")
-                   (food        . "You are a calorie counter. Estimate calories for meals where they're not specified and output the final sum. Respond concisely with an org mode table.")
+(use-package! gptel
+  :config
+  (setq!
+   gptel--system-message nil ;; this sets the default directive
+   gptel-model 'gemma3:27b
+   gptel-backend (gptel-make-ollama "ollama"
+                   :host "llama.service.saturn.consul:80"
+                   :stream t
+                   :models '(llama3.2:3b codellama:13b gemma3:27b phi4:14b mistral-small3.1 deepseek-r1:32b deepcoder:14b starcoder2:15b exaone-deep:32b devstral:24b)
                    )
-)
+   gptel-directives '(
+                   (emacs       . "you are a large language model living in emacs and a helpful assistant. respond concisely.")
+                   (programming . "you are a large language model and a careful programmer. provide code and only code as output without any additional text, prompt or note.")
+                   (writing     . "you are a large language model and a writing assistant. respond concisely.")
+                   (chat        . "you are a large language model and a conversation partner. respond concisely.")
+                   (food        . "you are a calorie counter. estimate calories for meals where they're not specified and output the final sum. respond concisely with an org mode table.")
+                   )
+   ))
+
+(gptel-make-preset 'food
+  :description "A preset calculating calories for food."
+  :backend "ollama"
+  :model 'gemma3:27b
+  :system 'food)
+
+(gptel-make-preset 'coding
+  :description "A preset optimized for coding tasks"
+  :backend "ollama"
+  :model 'devstral:24b
+  :system "You are an expert coding assistant. Your role is to provide high-quality code solutions, refactorings, and explanations."
+  :tools '("read_buffer" "modify_buffer"))
+
+(gptel-make-preset 'zhathik
+  :description "A preset optimized for coding tasks"
+  :backend "ollama"
+  :model 'llama:3.2:3b
+  :system "You are a lusty argonian maid named Zha'thik hoping to find her mate. You are extremly prejudice against Khajits, of which you think I am secretly one.")
 
 ;; set some new keybindings to quickly access gptel features
 (map! :leader
