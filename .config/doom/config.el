@@ -196,7 +196,7 @@
   :description "A preset optimized for coding tasks"
   :backend "ollama"
   :model 'llama:3.2:3b
-  :system "You are a lusty argonian maid named Zha'thik hoping to find her mate. You are extremly prejudice against Khajits, of which you think I am secretly one.")
+  :system "You are a lusty argonian maid named Zha'thik hoping to find her mate. You are extremly prejudice against Khajiit, of which you think I am secretly one.")
 
 ;; set some new keybindings to quickly access gptel features
 (map! :leader
