@@ -168,7 +168,34 @@
    gptel-backend (gptel-make-ollama "ollama"
                    :host "llama.service.saturn.consul:80"
                    :stream t
-                   :models '(llama3.2:3b codellama:13b gemma3:27b phi4:14b mistral-small3.1 deepseek-r1:32b deepcoder:14b starcoder2:15b exaone-deep:32b devstral:24b)
+                   :models '(
+                             (llama3.2:3b
+                              :description "Meta's Llama 3.2 goes small with 1B and 3B models."
+                              :capabilities (tool-use))
+                             (codellama:13b
+                              :description "A large language model that can use text prompts to generate and discuss code.")
+                             (gemma3:27b
+                              :description "The current, most capable model that runs on a single GPU."
+                              :capabilities (media)
+                              :mime-types ("image/jpeg" "image/png"))
+                             (deepseek-r1:32b
+                              :description "DeepSeek's first-generation of reasoning models with comparable performance to OpenAI-o1, including six dense models distilled from DeepSeek-R1 based on Llama and Qwen."
+                              :capabilities (reasoning))
+                             (devstral:24b
+                              :description "Devstral: the best open source model for coding agents"
+                              :capabilities (tool-use))
+                             (phi4:14b
+                              :description "Phi-4 is a 14B parameter, state-of-the-art open model from Microsoft.")
+                             (mistral:7b
+                              :description "The 7B model released by Mistral AI, updated to version 0.3."
+                              :capabilities (tool-use))
+                             (deepcoder:14b
+                              :description "DeepCoder is a fully open-Source 14B coder model at O3-mini level, with a 1.5B version also available.")
+                             (starcoder2:15b
+                              :description "StarCoder2 is the next generation of transparently trained open code LLMs that comes in three sizes: 3B, 7B and 15B parameters.")
+                             (exaone-deep:32b
+                              :description "EXAONE Deep exhibits superior capabilities in various reasoning tasks including math and coding benchmarks, ranging from 2.4B to 32B parameters developed and released by LG AI Research.")
+                             )
                    )
    gptel-directives '(
                    (emacs       . "you are a large language model living in emacs and a helpful assistant. respond concisely.")
@@ -177,6 +204,7 @@
                    (chat        . "you are a large language model and a conversation partner. respond concisely.")
                    (food        . "you are a calorie counter. estimate calories for meals where they're not specified and output the final sum. respond concisely with an org mode table.")
                    )
+   gptel-use-context 'user
    ))
 
 (gptel-make-preset 'food
