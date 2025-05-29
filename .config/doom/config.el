@@ -207,6 +207,9 @@
    gptel-use-context 'user
    ))
 
+;; remove the default backeneds
+(setf (gptel-get-backend "ChatGPT") nil)
+
 (gptel-make-preset 'food
   :description "A preset calculating calories for food."
   :backend "ollama"
