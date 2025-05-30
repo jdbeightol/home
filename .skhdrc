@@ -139,10 +139,10 @@ f14 : yabai -m window --toggle float;\
       yabai -m window --grid 16:4:1:1:2:14
 
 # emacs keybindings
-f17 : emacsclient --create-frame
-fn - e : emacsclient --create-frame
-f19 : emacsclient --eval "(emacs-everywhere)"
-fn - w : emacsclient --eval "(emacs-everywhere)"
+f17 : emacsclient --eval "(emacs-everywhere)"
+fn - e : emacsclient --eval "(emacs-everywhere)"
+f19 : emacsclient --create-frame
+fn + shift - e : emacsclient --create-frame
 
 # close focused window
 fn + shift - c : yabai -m window --close
