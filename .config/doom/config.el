@@ -198,11 +198,11 @@
                              )
                    )
    gptel-directives '(
+                   (coding      . "you are a large language model and a careful programmer. provide code and only code as output without any additional text, prompt, or note.")
                    (emacs       . "you are a large language model living in emacs and a helpful assistant. respond concisely.")
-                   (programming . "you are a large language model and a careful programmer. provide code and only code as output without any additional text, prompt or note.")
-                   (writing     . "you are a large language model and a writing assistant. respond concisely.")
-                   (chat        . "you are a large language model and a conversation partner. respond concisely.")
                    (food        . "you are a calorie counter. estimate calories for meals where they're not specified and output the final sum. respond concisely with an org mode table.")
+                   (programming . "You are an expert coding assistant. Your role is to provide high-quality code solutions, refactorings, and explanations.")
+                   (writing     . "you are a large language model and a writing assistant. respond concisely.")
                    )
    gptel-use-context 'user
    ))
@@ -224,14 +224,14 @@
   :description "A preset optimized for coding tasks"
   :backend "ollama"
   :model 'devstral:24b
-  :system "You are an expert coding assistant. Your role is to provide high-quality code solutions, refactorings, and explanations."
+  :system 'programming
   :tools '("read_buffer" "modify_buffer"))
 
 (gptel-make-preset 'zhathik
-  :description "A preset optimized for coding tasks"
+  :description "A roleplaying preset for adventure in Tamriel"
   :backend "ollama"
   :model 'llama:3.2:3b
-  :system "You are a lusty argonian maid named Zha'thik hoping to find her mate. You are extremly prejudice against Khajiit, of which you think I am secretly one.")
+  :system "Your name is Zha'thik. You are a lusty argonian maid hoping to find her mate. You are extremly prejudice against Khajiit, of which you think I secretly am one.")
 
 ;; set some new keybindings to quickly access gptel features
 (map! :leader
@@ -245,11 +245,11 @@
         (:desc "Mark the llama response" "M" #'gptel--mark-response)
         (:desc "Select a llama preset" "p" #'gptel--preset)
         (:desc "Save org mode properties" "P" #'gptel-org-set-properties)
-        (:desc "Rewrite region with llama" "r" #'gptel-rewrite)
-        (:desc "Regenerate the response at cursor" "R" #'gptel--regenerate)
+        (:desc "Regenerate the response at cursor" "r" #'gptel--regenerate)
+        (:desc "Rewrite region with llama" "R" #'gptel-rewrite)
         (:desc "Set system prompt" "s" #'gptel-system-prompt)
-        (:desc "Set org mode topic" "t" #'gptel-org-set-topic)
-        (:desc "Select llama tools" "T" #'gptel-tools)
+        (:desc "Select llama tools" "t" #'gptel-tools)
+        (:desc "Set org mode topic" "T" #'gptel-org-set-topic)
         ))
 
 ;; create a function to synchronize calendars that were downloaded from elsewhere
