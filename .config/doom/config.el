@@ -242,10 +242,14 @@
         (:desc "Add file to context" "f" #'gptel-add-file)
         (:desc "Send to llama" "l" #'gptel-send)
         (:desc "Open llama menu" "m" #'gptel-menu)
-        (:desc "Save org mode properties" "p" #'gptel-org-set-properties)
+        (:desc "Mark the llama response" "M" #'gptel--mark-response)
+        (:desc "Select a llama preset" "p" #'gptel--preset)
+        (:desc "Save org mode properties" "P" #'gptel-org-set-properties)
         (:desc "Rewrite region with llama" "r" #'gptel-rewrite)
+        (:desc "Regenerate the response at cursor" "R" #'gptel--regenerate)
         (:desc "Set system prompt" "s" #'gptel-system-prompt)
         (:desc "Set org mode topic" "t" #'gptel-org-set-topic)
+        (:desc "Select llama tools" "T" #'gptel-tools)
         ))
 
 ;; create a function to synchronize calendars that were downloaded from elsewhere
