@@ -210,9 +210,6 @@
 ;; remove the default backeneds
 (setf (gptel-get-backend "ChatGPT") nil)
 
-;; chat buffer configuration
-(add-hook 'gptel-post-stream-hook 'gptel-auto-scroll)
-
 (gptel-make-preset 'food
   :description "A preset calculating calories for food."
   :backend "ollama"
