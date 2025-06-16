@@ -214,7 +214,8 @@
   :description "A preset calculating calories for food."
   :backend "ollama"
   :model 'gemma3:27b
-  :system 'food)
+  :system 'food
+  :context--alist (list (list (concat org-roam-directory "20250615213619-calories.org"))))
 
 (gptel-make-preset 'coding
   :description "A preset optimized for coding tasks"
