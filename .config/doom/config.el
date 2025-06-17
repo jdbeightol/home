@@ -114,6 +114,9 @@
 ;; the icalendar-import-file function
 (setq org-agenda-include-diary t)
 
+;; automatically log the time when a todo task was marked as complete
+(setq org-log-done 'time)
+
 ;; set the format for the agenda
 (setq org-agenda-prefix-format '((agenda . " %i %?-12t% s")
                                 (todo . " %i")
