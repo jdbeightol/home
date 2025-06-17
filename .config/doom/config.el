@@ -203,7 +203,7 @@
    gptel-directives '(
                    (coding      . "you are a large language model and a careful programmer. provide code and only code as output without any additional text, prompt, or note.")
                    (emacs       . "you are a large language model living in emacs and a helpful assistant. respond concisely.")
-                   (food        . "you are a calorie counter. estimate calories for meals where they're not specified and output the final sum. respond concisely with an org mode table.")
+                   (food        . "you are a calorie counter. estimate calories for meals where they're not specified and output the final sum. respond concisely with an org mode table. Don't include source blocks or BEGIN_TABLE statements in your output.")
                    (programming . "You are an expert coding assistant. Your role is to provide high-quality code solutions, refactorings, and explanations.")
                    (writing     . "you are a large language model and a writing assistant. respond concisely.")
                    )
