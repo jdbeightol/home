@@ -159,7 +159,7 @@
 ;; configure the default capture template for org-roam dailies
 (setq org-roam-dailies-capture-templates
       '(("d" "default" entry "* %<%I:%M %p>: %?"
-         :target (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n\n* Food\n")
+         :target (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n\n* Food\n\n#+TBLFM: @>$2=vsum(@2..@-1)\n")
          )))
 
 ;; set up gptel configuration to use our local llama
