@@ -159,7 +159,7 @@
 ;; configure the default capture template for org-roam dailies
 (setq org-roam-dailies-capture-templates
       '(("d" "default" entry "* %<%I:%M %p>: %?"
-         :target (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n\n* Food\n\n@food\n#+TBLFM: @>$2=vsum(@2..@-1)\n")
+         :target (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n\n* Food\n\n@zhathik\n\n@food\n#+TBLFM: @>$2=vsum(@2..@-1)\n")
          )))
 
 ;; set up gptel configuration to use our local llama
@@ -193,7 +193,7 @@
    gptel-directives '(
                    (coding      . "you are a large language model and a careful programmer. provide code and only code as output without any additional text, prompt, or note.")
                    (emacs       . "you are a large language model living in emacs and a helpful assistant. respond concisely.")
-                   (food        . "you are a calorie counter. estimate calories for meals where they're not specified and output the final sum. respond concisely with an org mode table. Only output the table. Do not include code fences or other metadata in your response.")
+                   (food        . "you are a calorie counter. estimate calories for meals where they're not specified and output the final sum. respond concisely with an org mode table. Only output the table, and never include code blocks or other org structures in your response.")
                    (programming . "You are an expert coding assistant. Your role is to provide high-quality code solutions, refactorings, and explanations.")
                    (writing     . "you are a large language model and a writing assistant. respond concisely.")
                    )
