@@ -214,8 +214,7 @@
   :description "A preset optimized for coding tasks"
   :backend "ollama"
   :model 'devstral:24b
-  :system 'programming
-  :tools '("read_buffer" "modify_buffer"))
+  :system 'programming)
 
 (gptel-make-preset 'zhathik
   :description "A roleplaying preset for adventure in Tamriel"
