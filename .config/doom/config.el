@@ -208,6 +208,7 @@
   :backend "ollama"
   :model 'gemma3:27b
   :system 'food
+  :rewrite-message "Rewrite: fill in the missing values"
   :context--alist (list (list (concat org-roam-directory "20250615213619-calories.org"))))
 
 (gptel-make-preset 'coding
