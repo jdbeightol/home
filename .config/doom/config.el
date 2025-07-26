@@ -162,6 +162,11 @@
          :target (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n\n* Food\n| time | food    | calories | caffeine (mg) |\n|------+---------+----------+---------------|\n|      |         |          |               |\n|------+---------+----------+---------------|\n|      | *total* |          |               |\n#+TBLFM: @>$4=vsum(@2..@-1)::@>$3=vsum(@2..@-1)\n\n@zhathik\n")
          )))
 
+;; disable the markdown mode in emacs everywhere; the text does not copy correctly
+;; into windows when this is enabled
+(setq emacs-everywhere-markdown-apps nil)
+(setq emacs-everywhere-markdown-windows nil)
+
 ;; set up gptel configuration to use our local llama
 (use-package! gptel
   :config
