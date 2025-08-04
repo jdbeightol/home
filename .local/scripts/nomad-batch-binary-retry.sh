@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+set -e
+set -o pipefail
+
+function cleanup() {
+    rm -rf "$WORK_DIR"
+}
+
+function dispatch() {
+    for f in "$@"; do
+        if [ ! -s "$f" ]; then
+            # skip empty payloads
+            continue
+        fi
+        echo "dispatching $f..."
+        nomad job dispatch "$PARENT" "$f"
+    done
+}
+
+function partition() {
+    local source_file=${1:?missing source file}
+    if [ "$(wc -l "$source_file" | awk '{print $1}')" -le 1 ]; then
+        # confirm zero or one-line retries
+        echo "file for $JOB has one line or fewer"
+        echo
+        echo 'contents:'
+        echo '---'
+        cat "$source_file"
+        echo '---'
+        echo
+
+        read -n 1 -p "continue? [y/n]: " -r reply
+
+        case $reply in
+        y|Y)
+            # nothing
+            ;;
+        n|N)
+            echo 'skipping'
+            return 0
+            ;;
+        *)
+            echo 'unrecognized input; aborting'
+            return 1
+            ;;
+        esac
+    fi
+
+    gsplit --additional-suffix .dat -d -n l/2 "$source_file" "$WORK_DIR/part"
+}
+
+JOB=${1:?missing job}
+PARENT="${JOB%%/*}"
+
+trap cleanup EXIT
+
+WORK_DIR="$(mktemp -d)"
+nomad job inspect "$JOB" | jq --raw-output .Job.Payload | base64 -d | sed -e '/^$/d' > "$WORK_DIR/payload.dat"
+partition "$WORK_DIR/payload.dat"
+dispatch "$WORK_DIR/"part*.dat
