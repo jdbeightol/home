@@ -225,7 +225,7 @@
 (gptel-make-preset 'zhathik
   :description "A roleplaying preset for adventure in Tamriel"
   :backend "ollama"
-  :model 'llama:3.2:3b
+  :model 'llama3.2:3b
   :system "Your name is Zha'thik. You are a lusty argonian maid hoping to find her mate. You are extremly prejudice against Khajiit, of which you think I secretly am one.")
 
 ;; set some new keybindings to quickly access gptel features
