@@ -60,8 +60,6 @@ trap cleanup EXIT
 WORK_DIR="$(mktemp -d)"
 nomad job inspect "$JOB" | jq --raw-output .Job.Payload | base64 -d | sed -e '/^$/d' > "$WORK_DIR/payload.dat"
 
-echo $SPLIT
-
 if [ "$SPLIT" -eq 1 ]; then
     dispatch "$WORK_DIR/payload.dat"
 else
