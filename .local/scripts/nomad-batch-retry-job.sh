@@ -14,12 +14,13 @@ function dispatch() {
             continue
         fi
         echo "dispatching $f..."
-        nomad job dispatch "$PARENT" "$f"
+        echo nomad job dispatch "$PARENT" "$f"
     done
 }
 
 function partition() {
     local source_file=${1:?missing source file}
+    local count=${2:?missing split count}
     if [ "$(wc -l "$source_file" | awk '{print $1}')" -le 1 ]; then
         # confirm zero or one-line retries
         echo "file for $JOB has one line or fewer"
@@ -47,15 +48,23 @@ function partition() {
         esac
     fi
 
-    gsplit --additional-suffix .dat -d -n l/2 "$source_file" "$WORK_DIR/part"
+    gsplit --additional-suffix .dat -d -n "l/$count" "$source_file" "$WORK_DIR/part"
 }
 
 JOB=${1:?missing job}
 PARENT="${JOB%%/*}"
+SPLIT="${2:-1}"
 
 trap cleanup EXIT
 
 WORK_DIR="$(mktemp -d)"
 nomad job inspect "$JOB" | jq --raw-output .Job.Payload | base64 -d | sed -e '/^$/d' > "$WORK_DIR/payload.dat"
-partition "$WORK_DIR/payload.dat"
-dispatch "$WORK_DIR/"part*.dat
+
+echo $SPLIT
+
+if [ "$SPLIT" -eq 1 ]; then
+    dispatch "$WORK_DIR/payload.dat"
+else
+    partition "$WORK_DIR/payload.dat" "$SPLIT"
+    dispatch "$WORK_DIR/"part*.dat
+fi

@@ -12,6 +12,6 @@ JOBS=$(nomad job status "$JOB" 2>/dev/null |
            jq --raw-output '.[]|select(.Summary.Summary[].Complete == 0)|.Summary.JobID')
 
 for j in $JOBS; do
-    nomad-batch-binary-retry "$j"
-    nomad job stop -purge "$j"
+    nomad-batch-retry-job "$j" 8
+    echo nomad job stop -purge "$j"
 done
