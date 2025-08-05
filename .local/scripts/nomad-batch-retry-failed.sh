@@ -13,5 +13,5 @@ JOBS=$(nomad job status "$JOB" 2>/dev/null |
 
 for j in $JOBS; do
     nomad-batch-retry-job "$j" 8
-    echo nomad job stop -purge "$j"
+    nomad job stop -purge "$j"
 done

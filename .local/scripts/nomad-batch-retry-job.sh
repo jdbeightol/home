@@ -14,7 +14,7 @@ function dispatch() {
             continue
         fi
         echo "dispatching $f..."
-        echo nomad job dispatch "$PARENT" "$f"
+        nomad job dispatch "$PARENT" "$f"
     done
 }
 
