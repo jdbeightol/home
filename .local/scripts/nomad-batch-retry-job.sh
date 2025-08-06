@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-set -o pipefail
-
 function cleanup() {
     rm -rf "$WORK_DIR"
 }
@@ -13,8 +10,13 @@ function dispatch() {
             # skip empty payloads
             continue
         fi
+
         echo "dispatching $f..."
         nomad job dispatch "$PARENT" "$f"
+
+        if [ "$?" -eq "1" ]; then
+            exit 1
+        fi
     done
 }
 
@@ -48,7 +50,11 @@ function partition() {
         esac
     fi
 
-    gsplit --additional-suffix .dat -d -n "l/$count" "$source_file" "$WORK_DIR/part"
+    if command -v gsplit &>/dev/null; then
+        gsplit --additional-suffix .dat -d -n "l/$count" "$source_file" "$WORK_DIR/part"
+        return 0
+    fi
+    split --additional-suffix .dat -d -n "l/$count" "$source_file" "$WORK_DIR/part"
 }
 
 JOB=${1:?missing job}
