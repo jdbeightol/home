@@ -5,9 +5,12 @@ set -o pipefail
 
 JOB="${1:?missing job}"
 
-nomad job status "$JOB" 2>/dev/null |
-    grep 'dead' |
-    cut -d \  -f 1 |
-    xargs -n 1 nomad job status -json |
-    jq --raw-output '.[]|select(.Summary.Summary[].Complete > 0)|.Summary.JobID' |
+curl --silent $NOMAD_ADDR/v1/jobs |
+    jq --raw-output '
+       .[] |
+       select(.Type == "batch") |
+       select(.Status == "dead") |
+       select(.ParentID == "'"$JOB"'") |
+       select(.JobSummary.Summary.[].Complete > 0) |
+       .ID' |
     xargs -n 32 nomad job stop -purge
