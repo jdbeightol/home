@@ -15,6 +15,6 @@ JOBS=$(curl --silent $NOMAD_ADDR/v1/jobs |
        .ID')
 
 for j in $JOBS; do
-    echo nomad-batch-retry-job "$j" 8
-    echo nomad job stop -purge "$j"
+    nomad-batch-retry-job "$j" 8
+    nomad job stop -purge "$j"
 done
