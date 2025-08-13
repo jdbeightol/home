@@ -33,21 +33,24 @@ function partition() {
         echo '---'
         echo
 
-        read -n 1 -p "continue? [y/n]: " -r reply
+        while true; do
+            read -n 1 -p "continue? [y/n]: " -r reply
+            echo
 
-        case $reply in
-        y|Y)
-            # nothing
-            ;;
-        n|N)
-            echo 'skipping'
-            return 0
-            ;;
-        *)
-            echo 'unrecognized input; aborting'
-            return 1
-            ;;
-        esac
+            case $reply in
+            y|Y)
+                break
+                ;;
+            n|N)
+                echo 'skipping'
+                return 0
+                ;;
+            *)
+                echo 'unrecognized input'
+                continue
+                ;;
+            esac
+        done
     fi
 
     if command -v gsplit &>/dev/null; then
