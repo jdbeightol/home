@@ -213,7 +213,7 @@
   :backend "ollama"
   :model 'gemma3:27b
   :system 'food
-  :rewrite-message "Rewrite: fill in the missing values"
+  :rewrite-message "Rewrite: fill in the missing values for calories and caffeine with your best estimates. Do not add any new rows to the table."
   :context--alist (list (list (concat org-roam-directory "20250615213619-calories.org"))))
 
 (gptel-make-preset 'coding
