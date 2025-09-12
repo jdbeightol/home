@@ -10,7 +10,7 @@ curl --silent $NOMAD_ADDR/v1/jobs |
        select(.Type == "batch") |
        select(.ParentID == "'"$JOB"'") |
        .ID' |
-    xargs -I{} curl --silent $NOMAD_ADDR/v1/job/{} |
+    xargs -r -I{} curl --silent $NOMAD_ADDR/v1/job/{} |
     jq --raw-output '.Payload' |
     base64 -d |
     sed -e '/^$/d' |

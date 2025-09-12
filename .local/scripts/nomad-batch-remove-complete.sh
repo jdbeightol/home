@@ -13,4 +13,4 @@ curl --silent $NOMAD_ADDR/v1/jobs |
        select(.ParentID == "'"$JOB"'") |
        select(.JobSummary.Summary.[].Complete > 0) |
        .ID' |
-    xargs -n 32 nomad job stop -purge
+    xargs -r -n 32 nomad job stop -purge
