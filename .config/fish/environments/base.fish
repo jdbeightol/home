@@ -5,3 +5,7 @@ if test -d ~/.config/emacs/bin
 end
 
 abbr -a vi vim
+
+command -v zoxide &> /dev/null && zoxide init fish | source
+command -v starship &> /dev/null && starship init fish | source
+command -v pyenv &> /dev/null && pyenv init - fish | source

@@ -19,10 +19,7 @@ fish_add_path -gpP /usr/local/sbin
 # like python3 and git to use the macOS builtin binaries.  By calling
 # fish_add_path ourselves with the --prepend flag and omitting the --path flag
 # for the homebrew paths, we can guarantee that our system continues to operate
-# the same as before whatevere change occurred.
+# the same as before whatever change occurred.
 command -v /opt/homebrew/bin/brew &> /dev/null && /opt/homebrew/bin/brew shellenv | source
-command -v zoxide &> /dev/null && zoxide init fish | source
-command -v starship &> /dev/null && starship init fish | source
-command -v pyenv &> /dev/null && pyenv init - | source
 
 abbr -a lsblk diskutil list
