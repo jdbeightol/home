@@ -77,7 +77,8 @@ c.downloads.remove_finished = 30000
 c.hints.chars = "asdfghjklqwertyuiopzxcvbnm"
 c.fonts.hints = "bold 14pt default_family"
 
-# set default search to searxng
+# set default search and start page to searxng
+c.url.start_pages = "https://search.service.saturn.consul/"
 c.url.searchengines = {
     "DEFAULT": "https://search.service.saturn.consul/search?q={}",
 }
