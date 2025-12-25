@@ -77,6 +77,11 @@ c.downloads.remove_finished = 30000
 c.hints.chars = "asdfghjklqwertyuiopzxcvbnm"
 c.fonts.hints = "bold 14pt default_family"
 
+# set default search to searxng
+c.url.searchengines = {
+    "DEFAULT": "https://search.service.saturn.consul/search?q={}",
+}
+
 # disable notifications because they're annoying and other content blocking,
 # but only if supported; fail silently
 try:
