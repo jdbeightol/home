@@ -15,7 +15,7 @@ export GOPATH="$HOME/.local/go"
 export WORKSPACE_DIR="${HOME}/Workspace"
 
 export GIT_ADDR="ssh://git.service.saturn.consul:2222"
-export NOMAD_ADDR="http://mimas.saturn.sol:4646"
+export NOMAD_ADDR="http://nomad.service.saturn.consul:4646"
 export CONSUL_HTTP_ADDR="http://mimas.saturn.sol:8500"
 
 export VAULT_ADDR="http://vault.uranus.sol/"
