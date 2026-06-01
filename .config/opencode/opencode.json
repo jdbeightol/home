@@ -1,0 +1,32 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+    "permission": {
+    "*": "allow",
+    "grep": "allow",
+    "bash": "ask",
+    "git": "ask"
+  },
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama (local)",
+      "options": {
+        "baseURL": "http://llama.service.saturn.consul/v1"
+      },
+      "models": {
+        "devstral-small-2:24b": {
+          "name": "devstral2"
+        },
+        "gemma4:26b": {
+          "name": "gemma4"
+        },
+        "llama3.2:3b": {
+          "name": "llama3.2"
+        },
+        "qwen3.6:27b": {
+          "name": "qwen3.6"
+        }
+      }
+    }
+  }
+}
