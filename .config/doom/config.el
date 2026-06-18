@@ -182,7 +182,7 @@
                               :capabilities (tool-use))
                              (gemma4:26b
                               :description "The current, most capable model that runs on a single GPU."
-                              :capabilities (media)
+                              :capabilities (reasoning tool-use media)
                               :mime-types ("image/jpeg" "image/png"))
                              (deepseek-r1:32b
                               :description "DeepSeek's first-generation of reasoning models with comparable performance to OpenAI-o1, including six dense models distilled from DeepSeek-R1 based on Llama and Qwen."
