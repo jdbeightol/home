@@ -172,7 +172,7 @@
   :config
   (setq!
    gptel--system-message nil ;; this sets the default directive
-   gptel-model 'gemma3:27b
+   gptel-model 'gemma4:26b
    gptel-backend (gptel-make-ollama "ollama"
                    :host "llama.service.saturn.consul:80"
                    :stream t
@@ -180,7 +180,7 @@
                              (llama3.2:3b
                               :description "Meta's Llama 3.2 goes small with 1B and 3B models."
                               :capabilities (tool-use))
-                             (gemma3:27b
+                             (gemma4:26b
                               :description "The current, most capable model that runs on a single GPU."
                               :capabilities (media)
                               :mime-types ("image/jpeg" "image/png"))
@@ -189,9 +189,6 @@
                               :capabilities (reasoning tool-use))
                              (devstral:24b
                               :description "Devstral: the best open source model for coding agents"
-                              :capabilities (tool-use))
-                             (mistral:7b
-                              :description "The 7B model released by Mistral AI, updated to version 0.3."
                               :capabilities (tool-use))
                              )
                    )
@@ -211,7 +208,7 @@
 (gptel-make-preset 'food
   :description "A preset calculating calories for food."
   :backend "ollama"
-  :model 'gemma3:27b
+  :model 'gemma4:26b
   :system 'food
   :rewrite-message "Rewrite: fill in the missing values for calories and caffeine with your best estimates. Do not add any new rows to the table."
   :context--alist (list (list (concat org-roam-directory "20250615213619-calories.org"))))

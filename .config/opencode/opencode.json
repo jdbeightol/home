@@ -2,7 +2,6 @@
   "$schema": "https://opencode.ai/config.json",
     "permission": {
     "*": "allow",
-    "grep": "allow",
     "bash": "ask",
     "git": "ask"
   },
@@ -22,11 +21,16 @@
         },
         "llama3.2:3b": {
           "name": "llama3.2"
-        },
-        "qwen3.6:27b": {
-          "name": "qwen3.6"
         }
       }
+    }
+  },
+  "agent": {
+    "build": {
+      "model": "ollama/gemma4:26b"
+    },
+    "plan": {
+      "model": "ollama/gemma4:26b"
     }
   }
 }
