@@ -17,7 +17,12 @@
           "name": "devstral2"
         },
         "gemma4:26b": {
-          "name": "gemma4"
+          "name": "gemma4",
+          "attachment": true,
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
         },
         "llama3.2:3b": {
           "name": "llama3.2"
