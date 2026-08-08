@@ -159,7 +159,7 @@
 ;; configure the default capture template for org-roam dailies
 (setq org-roam-dailies-capture-templates
       '(("d" "default" entry "* %<%I:%M %p>: %?"
-         :target (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n\n* Food\n@food\n| time | food    | calories | caffeine (mg) |\n|------+---------+----------+---------------|\n|      |         |          |               |\n|------+---------+----------+---------------|\n|      | *total* |          |               |\n#+TBLFM: @>$4=vsum(@2..@-1)::@>$3=vsum(@2..@-1)\n\n@zhathik\n")
+         :target (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n\n* Food\n| time | food    | calories | caffeine (mg) |\n|------+---------+----------+---------------|\n|      |         |          |               |\n|------+---------+----------+---------------|\n|      | *total* |          |               |\n#+TBLFM: @>$4=vsum(@2..@-1)::@>$3=vsum(@2..@-1)\n\n@zhathik\n")
          )))
 
 ;; disable the markdown mode in emacs everywhere; the text does not copy correctly
