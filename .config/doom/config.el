@@ -175,6 +175,7 @@
    gptel-model 'gemma4:26b
    gptel-backend (gptel-make-openai "llama"
                    :host "llama.service.saturn.consul:80"
+                   :protocol "http"
                    :stream t
                    :models '(
                              (llama3.2:3b
