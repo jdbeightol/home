@@ -173,7 +173,7 @@
   (setq!
    gptel--system-message nil ;; this sets the default directive
    gptel-model 'gemma4:26b
-   gptel-backend (gptel-make-ollama "ollama"
+   gptel-backend (gptel-make-openai "llama"
                    :host "llama.service.saturn.consul:80"
                    :stream t
                    :models '(
@@ -187,9 +187,6 @@
                              (deepseek-r1:32b
                               :description "DeepSeek's first-generation of reasoning models with comparable performance to OpenAI-o1, including six dense models distilled from DeepSeek-R1 based on Llama and Qwen."
                               :capabilities (reasoning tool-use))
-                             (devstral:24b
-                              :description "Devstral: the best open source model for coding agents"
-                              :capabilities (tool-use))
                              )
                    )
    gptel-directives '(
@@ -207,7 +204,7 @@
 
 (gptel-make-preset 'food
   :description "A preset calculating calories for food."
-  :backend "ollama"
+  :backend "llama"
   :model 'gemma4:26b
   :system 'food
   :rewrite-message "Rewrite: fill in the missing values for calories and caffeine with your best estimates. Do not add any new rows to the table."
@@ -215,13 +212,13 @@
 
 (gptel-make-preset 'coding
   :description "A preset optimized for coding tasks"
-  :backend "ollama"
-  :model 'devstral:24b
+  :backend "llama"
+  :model 'gemma4:26b
   :system 'programming)
 
 (gptel-make-preset 'zhathik
   :description "A roleplaying preset for adventure in Tamriel"
-  :backend "ollama"
+  :backend "llama"
   :model 'llama3.2:3b
   :system "Your name is Zha'thik. You are a lusty argonian maid hoping to find her mate. You are extremly prejudice against Khajiit, of which you think I secretly am one.")
 
@@ -229,29 +226,10 @@
 (map! :leader
       (:prefix-map ("l" . "Llama")
         (:desc "Abort" "A" #'gptel-abort)
-        (:desc "Add region or buffer to context" "a" #'gptel-add)
         (:desc "Open llama buffer" "b" #'gptel)
-        (:desc "Add file to context" "f" #'gptel-add-file)
         (:desc "Send to llama" "l" #'gptel-send)
         (:desc "Regenerate response" "L" #'gptel--regenerate)
         (:desc "Open llama menu" "m" #'gptel-menu)
         (:desc "Mark the llama response" "M" #'gptel--mark-response)
-        (:desc "Select a llama preset" "p" #'gptel--preset)
-        (:desc "Save org mode properties" "P" #'gptel-org-set-properties)
         (:desc "Rewrite region with llama" "r" #'gptel-rewrite)
-        (:desc "Set system prompt" "s" #'gptel-system-prompt)
-        (:desc "Select llama tools" "t" #'gptel-tools)
-        (:desc "Set org mode topic" "T" #'gptel-org-set-topic)
         ))
-
-;; create a function to synchronize calendars that were downloaded from elsewhere
-(defun icalendar-import-local-files ()
-  "Syncronize calendars as defined in the user's ~/.local/calendars/ directory"
-  (interactive)
-  (let ((dir "~/.local/calendars/")
-        (ext ".ics"))
-    (progn
-      (delete-file diary-file)
-      (dolist (file (directory-files dir t))
-        (if (string-match ext file)
-            (icalendar-import-file file diary-file))))))
